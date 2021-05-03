@@ -5,7 +5,6 @@ import 'package:clean_project/src/presentation/screens/login/bloc/LoginBloc.dart
 import 'package:clean_project/src/presentation/screens/login/bloc/LoginEvent.dart';
 import 'package:clean_project/src/presentation/screens/splash/SplashScreen.dart';
 import 'package:flutter/cupertino.dart';
-import 'dart:io';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends Screen {
@@ -23,7 +22,6 @@ class LoginScreenState extends ScreenState<LoginBloc , LoginScreen>{
 
   void login(String email , String password){
     if(email.isNotEmpty && password.isNotEmpty){
-      stdout.write("On Login");
       this.bloc.add(AunthenticateEvent(email, password, (){
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => FieldListScreen()));
       }, (){}));
@@ -33,7 +31,6 @@ class LoginScreenState extends ScreenState<LoginBloc , LoginScreen>{
 
   void onForgetPassword(){
 
-    stdout.write("On Forget Password");
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => SplashScreen()));
     
   }

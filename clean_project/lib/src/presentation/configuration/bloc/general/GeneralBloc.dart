@@ -1,5 +1,6 @@
 
 import 'package:bloc/bloc.dart';
+import 'package:clean_project/src/presentation/components/organisms/CProgressModal.dart';
 import 'package:clean_project/src/presentation/configuration/bloc/general/GeneralEvent.dart';
 import 'package:clean_project/src/presentation/configuration/bloc/general/GeneralState.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,7 +20,7 @@ class GeneralBloc extends Bloc<GeneralEvent, GeneralState>{
   }
 
   void _showSpinner(Loading event){
-    // showDialog(context: event.context,builder: (BuildContext context) {return CProgressModal();});
+    showDialog(context: event.context,builder: (BuildContext context) {return CProgressModal();});
   }
 
   void _dissmissSipnner(DissmissLoading event){
