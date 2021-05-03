@@ -1,6 +1,6 @@
 
 abstract class AuthenticationRepository{
 
-  Future<Map<String, String>> authenticate({String email , String password});
+  Future<String> authenticate({String email , String password});
   
 }
