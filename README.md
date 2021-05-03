@@ -1,6 +1,6 @@
 # CleanFlutter
 
-A Flutter project with Clean Architecture and BLoC. **Link to project presentation, click [here](https://prezi.com/view/XNsm2gaEECR1xur67XOV/)**.
+A Flutter project with Clean Architecture and BLoC. **Link to project presentation, click [here](https://prezi.com/view/XNsm2gaEECR1xur67XOV/).**
 
 ## Installation
 
