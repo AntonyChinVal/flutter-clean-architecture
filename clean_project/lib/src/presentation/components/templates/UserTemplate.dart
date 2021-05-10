@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class SplashTemplate extends StatelessWidget {
+class UserTemplate extends StatelessWidget {
 
   final GlobalKey<State<StatefulWidget>>? globalKey;
 
-  SplashTemplate({
+  UserTemplate({
     @required this.globalKey
   });
 
