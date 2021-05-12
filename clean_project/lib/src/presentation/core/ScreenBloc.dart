@@ -9,9 +9,7 @@ abstract class ScreenBloc<T, S extends ScreenBlocState> extends Bloc<T, S> {
 
   @mustCallSuper
   void dispose(){
-
     this.close();
-    
   }
 
 }
