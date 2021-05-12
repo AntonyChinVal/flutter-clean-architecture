@@ -7,6 +7,7 @@ abstract class UseCase<T, Params> {
   UseCase();
 
   Future<T> execute(Params params);
+
 }
 
 abstract class UseCaseN<T> {
@@ -15,4 +16,5 @@ abstract class UseCaseN<T> {
   UseCaseN();
 
   Future<T> execute();
+  
 }

@@ -6,12 +6,10 @@ abstract class ScreenState<SB extends ScreenBloc , S extends Screen>  extends St
 
   final GlobalKey<State<StatefulWidget>> globalKey = GlobalKey<State<StatefulWidget>>();
   SB _bloc;
-  
   bool? _isMounted;
 
   ScreenState(this._bloc) {
     _isMounted = true;
-    
   }
 
   SB get bloc{
@@ -67,17 +65,15 @@ abstract class ScreenState<SB extends ScreenBloc , S extends Screen>  extends St
     }
   }
 
-  void afterInitState(){
-  }
+  void afterInitState(){}
 
-  void onInActive() {
-  }
-  void onPaused() {
-  }
-  void onResumed() {
-  }
-  void onDetached() {
-  }
+  void onInActive() {}
+
+  void onPaused() {}
+
+  void onResumed() {}
+
+  void onDetached() {}
 
 }
 
