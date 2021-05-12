@@ -7,8 +7,7 @@ import 'package:flutter/material.dart';
 
 class FieldListScreen extends Screen {
 
-  static String name = "FieldListScreen";
-  
+  static const String routeName = "FieldList";
   FieldListScreen({Key? key}) : super(key: key);
 
   @override

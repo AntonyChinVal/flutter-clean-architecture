@@ -78,6 +78,7 @@ abstract class ScreenState<SB extends ScreenBloc , S extends Screen>  extends St
 }
 
 abstract class Screen extends StatefulWidget {
+  
   final Key? key;
   Screen({this.key}) : super(key: key);
 

@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 
 class MainScreen extends Screen {
 
+  static const String routeName = "Main";
   MainScreen({Key? key}) : super(key: key);
 
   @override

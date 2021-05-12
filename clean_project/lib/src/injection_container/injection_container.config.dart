@@ -14,8 +14,11 @@ import '../domain/repositories/AuthenticationRepository.dart' as _i3;
 import '../domain/repositories/FieldRepository.dart' as _i5;
 import '../domain/repositories/UserRepository.dart' as _i8;
 import '../domain/usecases/GetFieldsUseCase.dart' as _i7;
-import '../domain/usecases/LoginUseCase.dart'
-    as _i10; // ignore_for_file: unnecessary_lambdas
+import '../domain/usecases/LoginUseCase.dart' as _i10;
+import '../presentation/configuration/navigation/NavigationService.dart'
+    as _i11;
+import '../presentation/configuration/navigation/RouteService.dart'
+    as _i12; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -30,5 +33,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i8.UserRepository>(() => _i9.UserRepositoryImpl());
   gh.factory<_i10.LoginUseCase>(() => _i10.LoginUseCase(
       get<_i3.AuthenticationRepository>(), get<_i8.UserRepository>()));
+  gh.singleton<_i11.NavigationService>(_i11.NavigationService());
+  gh.singleton<_i12.RouteService>(_i12.RouteService());
   return get;
 }

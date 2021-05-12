@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 
 class UserScreen extends Screen {
   
-  static String name = "UserScreen";
-
+  static const String routeName = "User";
   UserScreen({Key? key}) : super(key: key);
 
   @override
