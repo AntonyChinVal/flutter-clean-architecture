@@ -2,7 +2,6 @@ import 'package:clean_project/src/presentation/components/templates/LoginTemplat
 import 'package:clean_project/src/presentation/core/Screen.dart';
 import 'package:clean_project/src/presentation/screens/login/bloc/LoginBloc.dart';
 import 'package:clean_project/src/presentation/screens/login/bloc/LoginEvent.dart';
-import 'package:clean_project/src/presentation/screens/main/MainScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,10 +22,17 @@ class LoginScreenState extends ScreenState<LoginBloc , LoginScreen>{
   void login(String email , String password){
     if(email.isNotEmpty && password.isNotEmpty){
       this.bloc.add(AunthenticateEvent(email, password, (){
-        // Navigator.of(context).pushReplacementNamed(MainScreen.routeName);
       }, (){}));
     }
 
+  }
+
+  void googleLogin(){
+    this.bloc.add(GooggleAunthenticateEvent());
+  }
+
+  void facebookLogin(){
+    this.bloc.add(FacebookAunthenticateEvent());
   }
 
   void onForgetPassword(){
@@ -37,6 +43,8 @@ class LoginScreenState extends ScreenState<LoginBloc , LoginScreen>{
     return LoginTemplate(
       globalKey: this.globalKey,
       onLogin: this.login,
+      onGoogleLogin: this.googleLogin,
+      onFacebookLogin: this.facebookLogin,
       onForgetPassword: this.onForgetPassword,
       inAsyncCall: this.bloc.state.inAsyncCall,
     );

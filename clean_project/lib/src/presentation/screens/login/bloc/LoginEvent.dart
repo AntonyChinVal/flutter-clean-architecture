@@ -10,3 +10,15 @@ class AunthenticateEvent extends LoginSEvent {
   AunthenticateEvent(this.username, this.password, this.onSuccess, this.onError);
 
 }
+
+class GooggleAunthenticateEvent extends LoginSEvent {
+
+  GooggleAunthenticateEvent();
+
+}
+
+class FacebookAunthenticateEvent extends LoginSEvent {
+
+  FacebookAunthenticateEvent();
+
+}

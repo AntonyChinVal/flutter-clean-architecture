@@ -15,8 +15,10 @@ class CButton extends StatelessWidget {
     
     return  ElevatedButton(
         autofocus: false,
-        style: TextButton.styleFrom(primary: this.color,shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6)
+        style: ElevatedButton.styleFrom(
+          primary: this.color,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(6)
         ) ),
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),

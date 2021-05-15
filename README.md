@@ -9,12 +9,31 @@ Install [flutter](https://flutter.dev/docs/get-started/install) to run the proje
 Run the following commands
 
 ```flutter
+cd clean_project
+
 flutter pub get
 
 flutter packages pub run build_runner build --delete-conflicting-outputs
 ```
 
+### Firebase Installation
+Install [FlutterFire](https://firebase.flutter.dev/) to be able to use Firebase.
+
+### Social Authentication
+Follow the steps indicated in [SocialAuth] to be able to use Google and Facebook authentication.
+
 ## Run
+
+```flutter
+flutter run
+```
+
+## Run with Firebase
+To compile with firebase, in `.env` change the value of `FIREBASE`.
+
+```flutter
+FIREBASE=true
+```
 
 ```flutter
 flutter run
