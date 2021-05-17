@@ -1,12 +1,11 @@
 import 'package:clean_project/src/domain/usecases/FacebookLoginUseCase.dart';
-import 'package:clean_project/src/injection_container/injection_container.dart';
+import 'package:clean_project/src/configuration/injectionConfiguration/injection_container.dart';
 import 'package:clean_project/src/presentation/configuration/navigation/NavigationService.dart';
 import 'package:clean_project/src/presentation/core/ScreenBloc.dart';
 import 'package:clean_project/src/domain/usecases/LoginUseCase.dart';
 import 'package:clean_project/src/domain/usecases/GoogleLoginUseCase.dart';
 import 'package:clean_project/src/presentation/screens/login/bloc/LoginEvent.dart';
 import 'package:clean_project/src/presentation/screens/login/bloc/LoginState.dart';
-import 'dart:io';
 import 'package:clean_project/src/presentation/screens/main/MainScreen.dart';
 
 class LoginBloc extends ScreenBloc<LoginSEvent, LoginState>{

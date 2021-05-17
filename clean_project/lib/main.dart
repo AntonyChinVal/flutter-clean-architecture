@@ -1,20 +1,12 @@
-import 'package:clean_project/src/injection_container/injection_container.dart';
-import 'package:clean_project/src/presentation/configuration/App.dart';
-import 'package:clean_project/src/presentation/configuration/FirebaseInitApp.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
+
+import 'package:clean_project/src/configuration/appConfiguration/app_configuration.dart';
+import 'package:clean_project/src/configuration/envConfiguration/env_configuration.dart';
+import 'package:clean_project/src/configuration/firebaseConfiguration/firebase_configuration.dart';
+import 'package:clean_project/src/configuration/injectionConfiguration/injection_container.dart';
 
 void main() async{
-  await DotEnv.load();
+  await configureEnv();
   configureInjection();
-  WidgetsFlutterBinding.ensureInitialized();
-  
-  bool isWithFirabase = DotEnv.env["FIREBASE"] == "true";
-  if(isWithFirabase){
-    runApp(FirebaseInitApp());
-  }else{
-    runApp(MyApp());
-  }
-  
+  configureFirebase();
+  configureApp();
 }

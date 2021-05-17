@@ -7,19 +7,19 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../data/repositories/AuthenticationRepository.dart' as _i4;
-import '../data/repositories/FieldRepository.dart' as _i7;
-import '../data/repositories/UserRepository.dart' as _i11;
-import '../domain/repositories/AuthenticationRepository.dart' as _i3;
-import '../domain/repositories/FieldRepository.dart' as _i6;
-import '../domain/repositories/UserRepository.dart' as _i10;
-import '../domain/usecases/FacebookLoginUseCase.dart' as _i5;
-import '../domain/usecases/GetFieldsUseCase.dart' as _i8;
-import '../domain/usecases/GoogleLoginUseCase.dart' as _i9;
-import '../domain/usecases/LoginUseCase.dart' as _i12;
-import '../presentation/configuration/navigation/NavigationService.dart'
+import '../../data/repositories/AuthenticationRepository.dart' as _i4;
+import '../../data/repositories/FieldRepository.dart' as _i7;
+import '../../data/repositories/UserRepository.dart' as _i11;
+import '../../domain/repositories/AuthenticationRepository.dart' as _i3;
+import '../../domain/repositories/FieldRepository.dart' as _i6;
+import '../../domain/repositories/UserRepository.dart' as _i10;
+import '../../domain/usecases/FacebookLoginUseCase.dart' as _i5;
+import '../../domain/usecases/GetFieldsUseCase.dart' as _i8;
+import '../../domain/usecases/GoogleLoginUseCase.dart' as _i9;
+import '../../domain/usecases/LoginUseCase.dart' as _i12;
+import '../../presentation/configuration/navigation/NavigationService.dart'
     as _i13;
-import '../presentation/configuration/navigation/RouteService.dart'
+import '../../presentation/configuration/navigation/RouteService.dart'
     as _i14; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars

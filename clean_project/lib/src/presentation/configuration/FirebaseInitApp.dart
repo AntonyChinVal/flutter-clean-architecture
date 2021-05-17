@@ -4,9 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FirebaseInitApp extends StatefulWidget {
-  // Create the initialization Future outside of `build`:
+  
   @override
   _FirebaseInitAppState createState() => _FirebaseInitAppState();
+
 }
 
 class _FirebaseInitAppState extends State<FirebaseInitApp> {

@@ -3,7 +3,7 @@ import 'package:clean_project/src/presentation/screens/fieldList/bloc/FieldListE
 import 'package:clean_project/src/presentation/screens/fieldList/bloc/FieldListState.dart';
 import 'package:clean_project/src/domain/entities/field/Field.dart';
 import 'package:clean_project/src/domain/usecases/GetFieldsUseCase.dart';
-import 'package:clean_project/src/injection_container/injection_container.dart';
+import 'package:clean_project/src/configuration/injectionConfiguration/injection_container.dart';
 
 class FieldListBloc extends ScreenBloc<FieldListEvent, FieldListState>{
 

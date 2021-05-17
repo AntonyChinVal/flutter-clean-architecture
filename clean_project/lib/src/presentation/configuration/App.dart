@@ -1,4 +1,4 @@
-import 'package:clean_project/src/injection_container/injection_container.dart';
+import 'package:clean_project/src/configuration/injectionConfiguration/injection_container.dart';
 import 'package:clean_project/src/presentation/configuration/bloc/general/GeneralBloc.dart';
 import 'package:clean_project/src/presentation/configuration/navigation/NavigationService.dart';
 import 'package:clean_project/src/presentation/configuration/navigation/RouteService.dart';
