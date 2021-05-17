@@ -1,4 +1,5 @@
 import 'package:clean_project/src/data/api/Api.dart';
+import 'package:clean_project/src/domain/entities/user/AppUser.dart';
 import 'package:clean_project/src/domain/repositories/AuthenticationRepository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -26,7 +27,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository{
   }
 
   @override
-  Future<UserCredential> googleAuthenticate() async {
+  Future<AppUser> googleAuthenticate() async {
 
     print("GoogleUser");
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -38,20 +39,27 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository{
     print("Credential");
     print(credential);
 
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+    
+    UserCredential userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+    AppUser appUser = new AppUser(name : userCredential.additionalUserInfo!.username);
+
+    return appUser;
       
   }
 
   @override
-  Future<UserCredential> facebookAuthenticate() async {
+  Future<AppUser> facebookAuthenticate() async {
 
-  print("FacebookUser");
-  final AccessToken? result = await FacebookAuth.instance.login().then((value) => value.accessToken);
-  final credential = FacebookAuthProvider.credential(result!.token);
-  print("Credential");
-  print(credential);
+    print("FacebookUser");
+    final AccessToken? result = await FacebookAuth.instance.login().then((value) => value.accessToken);
+    final credential = FacebookAuthProvider.credential(result!.token);
+    print("Credential");
+    print(credential);
 
-  return await FirebaseAuth.instance.signInWithCredential(credential);
+    UserCredential userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+    AppUser appUser = new AppUser(name : userCredential.additionalUserInfo!.username);
+
+    return appUser;
       
   }
 

@@ -1,7 +1,9 @@
-import 'package:clean_project/src/domain/entities/user/User.dart';
+
+
+import 'package:clean_project/src/domain/entities/user/AppUser.dart';
 
 abstract class UserRepository{
 
-  Future<User> getUser();
+  Future<AppUser> getUser();
   
 }

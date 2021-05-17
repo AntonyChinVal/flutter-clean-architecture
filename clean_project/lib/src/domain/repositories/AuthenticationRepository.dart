@@ -1,10 +1,10 @@
 
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:clean_project/src/domain/entities/user/AppUser.dart';
 
 abstract class AuthenticationRepository{
 
   Future<String> authenticate({String email , String password});
-  Future<UserCredential> googleAuthenticate();
-  Future<UserCredential> facebookAuthenticate();
+  Future<AppUser> googleAuthenticate();
+  Future<AppUser> facebookAuthenticate();
   
 }

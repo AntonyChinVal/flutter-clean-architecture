@@ -1,5 +1,5 @@
 import 'package:clean_project/src/data/api/Api.dart';
-import 'package:clean_project/src/domain/entities/user/User.dart';
+import 'package:clean_project/src/domain/entities/user/AppUser.dart';
 import 'package:clean_project/src/domain/repositories/UserRepository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -7,13 +7,13 @@ import 'package:injectable/injectable.dart';
 class UserRepositoryImpl implements UserRepository{
 
   @override
-  Future<User> getUser() {
+  Future<AppUser> getUser() {
     
     return dioApiAuth.get("user/get")
     .then((response){
         print("Response Get User");
         print(response);
-        User user = User.fromJson(response.data);
+        AppUser user = AppUser.fromJson(response.data);
         return user;
       })
       .catchError((error){
