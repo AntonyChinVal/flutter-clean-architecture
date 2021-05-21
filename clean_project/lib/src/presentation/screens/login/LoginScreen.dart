@@ -6,42 +6,35 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends Screen {
-
   static const String routeName = "Login";
   LoginScreen({Key? key}) : super(key: key);
 
   @override
   LoginScreenState createState() => LoginScreenState();
-
 }
 
-class LoginScreenState extends ScreenState<LoginBloc , LoginScreen>{
-  
+class LoginScreenState extends ScreenState<LoginBloc, LoginScreen> {
   LoginScreenState() : super(LoginBloc());
 
-  void login(String email , String password){
-    if(email.isNotEmpty && password.isNotEmpty){
-      this.bloc.add(AunthenticateEvent(email, password, (){
-      }, (){}));
+  void login(String email, String password) {
+    if (email.isNotEmpty && password.isNotEmpty) {
+      this.bloc.add(AuthenticateEvent(email, password));
     }
-
   }
 
-  void googleLogin(){
-    this.bloc.add(GooggleAunthenticateEvent());
+  void googleLogin() {
+    this.bloc.add(GooggleAuthenticateEvent());
   }
 
-  void facebookLogin(){
-    this.bloc.add(FacebookAunthenticateEvent());
+  void facebookLogin() {
+    this.bloc.add(FacebookAuthenticateEvent());
   }
 
-  void onForgetPassword(){
-  }
+  void onForgetPassword() {}
 
   @override
   Widget buildTemplate() {
     return LoginTemplate(
-      globalKey: this.globalKey,
       onLogin: this.login,
       onGoogleLogin: this.googleLogin,
       onFacebookLogin: this.facebookLogin,
@@ -49,5 +42,4 @@ class LoginScreenState extends ScreenState<LoginBloc , LoginScreen>{
       inAsyncCall: this.bloc.state.inAsyncCall,
     );
   }
-
 }

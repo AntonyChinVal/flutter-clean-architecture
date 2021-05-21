@@ -2,9 +2,10 @@ import 'package:clean_project/src/presentation/core/ScreenBloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-abstract class ScreenState<SB extends ScreenBloc , S extends Screen>  extends State<S> with WidgetsBindingObserver {
-
-  final GlobalKey<State<StatefulWidget>> globalKey = GlobalKey<State<StatefulWidget>>();
+abstract class ScreenState<SB extends ScreenBloc, S extends Screen>
+    extends State<S> with WidgetsBindingObserver {
+  final GlobalKey<State<StatefulWidget>> globalKey =
+      GlobalKey<State<StatefulWidget>>();
   SB _bloc;
   bool? _isMounted;
 
@@ -12,13 +13,13 @@ abstract class ScreenState<SB extends ScreenBloc , S extends Screen>  extends St
     _isMounted = true;
   }
 
-  SB get bloc{
+  SB get bloc {
     return this._bloc;
   }
 
   @override
   @mustCallSuper
-  void initState(){
+  void initState() {
     super.initState();
     this.afterInitState();
   }
@@ -28,13 +29,10 @@ abstract class ScreenState<SB extends ScreenBloc , S extends Screen>  extends St
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create:  (context)=> this._bloc,
-      child: BlocBuilder<SB,ScreenBlocState>(
-        builder : (context , state){
+        create: (context) => this._bloc,
+        child: BlocBuilder<SB, ScreenBlocState>(builder: (context, state) {
           return this.buildTemplate();
-        }
-      )
-    );
+        }));
   }
 
   @override
@@ -65,7 +63,7 @@ abstract class ScreenState<SB extends ScreenBloc , S extends Screen>  extends St
     }
   }
 
-  void afterInitState(){}
+  void afterInitState() {}
 
   void onInActive() {}
 
@@ -74,21 +72,16 @@ abstract class ScreenState<SB extends ScreenBloc , S extends Screen>  extends St
   void onResumed() {}
 
   void onDetached() {}
-
 }
 
 abstract class Screen extends StatefulWidget {
-  
-  final Key? key;
-  Screen({this.key}) : super(key: key);
+  Screen({Key? key}) : super(key: key);
 
   String getName() {
-    return "Screen"; 
+    return "Screen";
   }
 
   Icon getIcon() {
     return Icon(Icons.home);
   }
-
 }
-   

@@ -7,32 +7,37 @@ import 'package:clean_project/src/domain/repositories/UserRepository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class LoginUseCase extends UseCase<AppUser, LoginUseCaseParams> {
-  
-  AuthenticationRepository _authenticationRepository;
-  UserRepository _userRepository;
-  SharedPreferencesRepository _sharedPreferencesRepository;
-  
-  LoginUseCase(this._authenticationRepository, this._userRepository, this._sharedPreferencesRepository) : super();
+class LoginUseCase extends UseCase<AppUser?, LoginUseCaseParams> {
+  AuthenticationRepository? _authenticationRepository;
+  UserRepository? _userRepository;
+  SharedPreferencesRepository? _sharedPreferencesRepository;
+
+  LoginUseCase.test();
+  LoginUseCase(this._authenticationRepository, this._userRepository,
+      this._sharedPreferencesRepository)
+      : super();
 
   @override
-  Future<AppUser> execute(LoginUseCaseParams params) async{
-    
-    String token = await this._authenticationRepository.authenticate(email: params.email!,password: params.password!);
-    await this._sharedPreferencesRepository.setValue(key: 'token', value: token);
-    AppUser user = await this._userRepository.getUser();
+  Future<AppUser?> execute(LoginUseCaseParams params) async {
+    try {
+      String token = await this
+          ._authenticationRepository!
+          .authenticate(email: params.email!, password: params.password!);
+      await this
+          ._sharedPreferencesRepository!
+          .setValue(key: 'token', value: token);
+      AppUser user = await this._userRepository!.getUser();
 
-    return user;
-
+      return user;
+    } catch (ex) {
+      return null;
+    }
   }
-
 }
 
 class LoginUseCaseParams {
-  
   String? email;
   String? password;
 
   LoginUseCaseParams({this.email, this.password});
-
 }

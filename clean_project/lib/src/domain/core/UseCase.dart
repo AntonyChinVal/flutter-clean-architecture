@@ -1,20 +1,16 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 
-abstract class UseCase<T, Params> {
-
+abstract class UseCase<T, P> {
   @mustCallSuper
   UseCase();
 
-  Future<T> execute(Params params);
-
+  Future<T> execute(P params);
 }
 
 abstract class UseCaseN<T> {
-
   @mustCallSuper
   UseCaseN();
 
   Future<T> execute();
-  
 }

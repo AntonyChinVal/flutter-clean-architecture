@@ -5,25 +5,21 @@ import 'package:clean_project/src/domain/repositories/AuthenticationRepository.d
 import 'package:injectable/injectable.dart';
 
 @injectable
-class FacebookLoginUseCase extends UseCase<AppUser?, FacebookLoginUseCaseParams> {
-  
-  AuthenticationRepository _authenticationRepository;
-  
+class FacebookLoginUseCase
+    extends UseCase<AppUser?, FacebookLoginUseCaseParams> {
+  AuthenticationRepository? _authenticationRepository;
+
   FacebookLoginUseCase(this._authenticationRepository) : super();
 
   @override
-  Future<AppUser?> execute(FacebookLoginUseCaseParams params) async{
-    
-      AppUser appUser = await this._authenticationRepository.facebookAuthenticate();
+  Future<AppUser?> execute(FacebookLoginUseCaseParams params) async {
+    AppUser appUser =
+        await this._authenticationRepository!.facebookAuthenticate();
 
-      return appUser;
-    
+    return appUser;
   }
-
 }
 
 class FacebookLoginUseCaseParams {
-  
   FacebookLoginUseCaseParams();
-
 }

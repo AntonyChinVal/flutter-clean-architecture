@@ -6,17 +6,13 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class GetFieldsUseCase extends UseCaseN<List<Field>> {
+  FieldRepository? _fieldRepository;
 
-  FieldRepository _fieldRepository;
-  
   GetFieldsUseCase(this._fieldRepository) : super();
 
   @override
-  Future<List<Field>> execute() async{
-
-    List<Field> fields = await this._fieldRepository.getFields();
-    return  fields;
-    
+  Future<List<Field>> execute() async {
+    List<Field> fields = await this._fieldRepository!.getFields();
+    return fields;
   }
-
 }

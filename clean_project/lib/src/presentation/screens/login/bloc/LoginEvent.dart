@@ -1,24 +1,22 @@
 abstract class LoginSEvent{}
 
-class AunthenticateEvent extends LoginSEvent {
+class AuthenticateEvent extends LoginSEvent {
   
   final String username;
   final String password;
-  final Function() onSuccess;
-  final Function() onError;
 
-  AunthenticateEvent(this.username, this.password, this.onSuccess, this.onError);
+  AuthenticateEvent(this.username, this.password);
 
 }
 
-class GooggleAunthenticateEvent extends LoginSEvent {
+class GooggleAuthenticateEvent extends LoginSEvent {
 
-  GooggleAunthenticateEvent();
+  GooggleAuthenticateEvent();
 
 }
 
-class FacebookAunthenticateEvent extends LoginSEvent {
+class FacebookAuthenticateEvent extends LoginSEvent {
 
-  FacebookAunthenticateEvent();
+  FacebookAuthenticateEvent();
 
 }

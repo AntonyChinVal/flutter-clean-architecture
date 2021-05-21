@@ -1,4 +1,4 @@
-abstract class FieldListEvent{}
+abstract class FieldListEvent {}
 
 class GetFieldListEvent extends FieldListEvent {
   GetFieldListEvent();
@@ -6,5 +6,5 @@ class GetFieldListEvent extends FieldListEvent {
 
 class FilterFieldsEvent extends FieldListEvent {
   final String namePattern;
-  FilterFieldsEvent( this.namePattern);
+  FilterFieldsEvent(this.namePattern);
 }

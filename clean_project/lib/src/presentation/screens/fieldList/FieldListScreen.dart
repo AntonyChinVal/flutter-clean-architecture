@@ -6,58 +6,53 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FieldListScreen extends Screen {
-
   static const String routeName = "FieldList";
   FieldListScreen({Key? key}) : super(key: key);
 
   @override
-  String getName(){
+  String getName() {
     return "Home";
   }
 
   @override
-  Icon getIcon(){
+  Icon getIcon() {
     return Icon(Icons.home);
   }
 
   @override
   FieldListScreenState createState() => FieldListScreenState();
-
 }
 
-class FieldListScreenState extends ScreenState<FieldListBloc , FieldListScreen>{
-  
+class FieldListScreenState extends ScreenState<FieldListBloc, FieldListScreen> {
   final TextEditingController _searchController = TextEditingController();
 
   FieldListScreenState() : super(FieldListBloc());
 
-  void getFields(){
+  void getFields() {
     this.bloc.add(GetFieldListEvent());
   }
 
   @override
-  void afterInitState(){
+  void afterInitState() {
     this.getFields();
-    this._searchController.addListener((){
+    this._searchController.addListener(() {
       print(this._searchController.text);
       this.bloc.add(FilterFieldsEvent(this._searchController.text));
     });
   }
-  
+
   @override
   Widget buildTemplate() {
     return FieldListTemplate(
-      globalKey: this.globalKey,
-      fields : this.bloc.state.fields,
+      fields: this.bloc.state.fields,
       searchController: _searchController,
       inAsyncCall: this.bloc.state.inAsyncCall,
-      );
+    );
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
     _searchController.dispose();
   }
-
 }

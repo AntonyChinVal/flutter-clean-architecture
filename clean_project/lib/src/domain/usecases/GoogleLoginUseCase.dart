@@ -6,24 +6,19 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class GoogleLoginUseCase extends UseCase<AppUser?, GoogleLoginUseCaseParams> {
-  
-  AuthenticationRepository _authenticationRepository;
-  
+  AuthenticationRepository? _authenticationRepository;
+
   GoogleLoginUseCase(this._authenticationRepository) : super();
 
   @override
-  Future<AppUser?> execute(GoogleLoginUseCaseParams params) async{
-    
-      AppUser appUser = await this._authenticationRepository.googleAuthenticate();
+  Future<AppUser?> execute(GoogleLoginUseCaseParams params) async {
+    AppUser appUser =
+        await this._authenticationRepository!.googleAuthenticate();
 
-      return appUser;
-    
+    return appUser;
   }
-
 }
 
 class GoogleLoginUseCaseParams {
-  
   GoogleLoginUseCaseParams();
-
 }

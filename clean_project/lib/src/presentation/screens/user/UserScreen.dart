@@ -5,34 +5,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class UserScreen extends Screen {
-  
   static const String routeName = "User";
   UserScreen({Key? key}) : super(key: key);
 
   @override
-  String getName(){
+  String getName() {
     return "You";
   }
 
   @override
-  Icon getIcon(){
+  Icon getIcon() {
     return Icon(Icons.person);
   }
 
   @override
   UserScreenState createState() => UserScreenState();
-
 }
 
-class UserScreenState extends ScreenState<UserBloc , UserScreen>{
-  
+class UserScreenState extends ScreenState<UserBloc, UserScreen> {
   UserScreenState() : super(UserBloc());
 
   @override
   Widget buildTemplate() {
-
-    return UserTemplate(globalKey: this.globalKey);
-
+    return UserTemplate();
   }
-
 }

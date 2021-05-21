@@ -7,17 +7,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends Screen {
-
   static const String routeName = "Main";
   MainScreen({Key? key}) : super(key: key);
 
   @override
   MainScreenState createState() => MainScreenState();
-
 }
 
-class MainScreenState extends ScreenState<MainBloc , MainScreen>{
-
+class MainScreenState extends ScreenState<MainBloc, MainScreen> {
   List<Screen> _widgets = <Screen>[FieldListScreen(), UserScreen()];
   int _selectedIndex = 0;
 
@@ -32,11 +29,9 @@ class MainScreenState extends ScreenState<MainBloc , MainScreen>{
   @override
   Widget buildTemplate() {
     return MainTemplate(
-      globalKey: globalKey, 
-      selectedIndex: this._selectedIndex, 
-      widgets: this._widgets, 
+      selectedIndex: this._selectedIndex,
+      widgets: this._widgets,
       onTapHandler: this._onTapHandler,
     );
   }
-
 }
