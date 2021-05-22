@@ -1,0 +1,21 @@
+os:
+  - linux
+sudo: false
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test 
+    packages:
+      - libstdc++6
+      - fonts-droid-fallback
+before_script:
+  - git clone https://github.com/flutter/flutter.git -b beta
+  - ./flutter/bin/flutter doctor
+script:
+  - cd clean_project
+  - ../flutter/bin/flutter pub get
+  - ../flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+  - ../flutter/bin/flutter test
+cache:
+  directories:
+    - $HOME/.pub-cache
