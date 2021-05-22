@@ -1,7 +1,7 @@
 import 'package:clean_project/src/presentation/components/templates/MainTemplate.dart';
 import 'package:clean_project/src/presentation/core/Screen.dart';
-import 'package:clean_project/src/presentation/screens/Main/bloc/MainBloc.dart';
 import 'package:clean_project/src/presentation/screens/fieldList/FieldListScreen.dart';
+import 'package:clean_project/src/presentation/screens/main/bloc/MainBloc.dart';
 import 'package:clean_project/src/presentation/screens/user/UserScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
