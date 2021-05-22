@@ -6,9 +6,16 @@ import 'package:clean_project/src/domain/usecases/GetFieldsUseCase.dart';
 import 'package:clean_project/src/configuration/injectionConfiguration/injection_container.dart';
 
 class FieldListBloc extends ScreenBloc<FieldListEvent, FieldListState> {
-  final GetFieldsUseCase _getFieldsUseCase = getIt<GetFieldsUseCase>();
+  GetFieldsUseCase? _getFieldsUseCase;
 
-  FieldListBloc() : super(FieldsListInitState());
+  FieldListBloc() : super(FieldsListInitState()) {
+    this._getFieldsUseCase = getIt<GetFieldsUseCase>();
+  }
+
+  FieldListBloc.test(GetFieldsUseCase getFieldsUseCase)
+      : super(FieldsListInitState()) {
+    this._getFieldsUseCase = getFieldsUseCase;
+  }
 
   @override
   Stream<FieldListState> mapEventToState(FieldListEvent event) async* {
@@ -22,7 +29,7 @@ class FieldListBloc extends ScreenBloc<FieldListEvent, FieldListState> {
   Stream<FieldListState> _getFields(GetFieldListEvent event) async* {
     try {
       yield FieldsLoadingState();
-      List<Field> fields = await this._getFieldsUseCase.execute();
+      List<Field> fields = await this._getFieldsUseCase!.execute();
       yield FieldsLoadedState(fields);
     } catch (_) {
       yield FieldsListInitState();

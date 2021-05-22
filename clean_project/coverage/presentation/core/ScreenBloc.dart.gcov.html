@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">5</td>
             <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntryLo">71.4 %</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-05-21 14:22:00</td>
+            <td class="headerValue">2021-05-22 00:13:43</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -65,22 +65,22 @@
 <a name="3"><span class="lineNum">       3 </span>            : import 'package:flutter/material.dart';</a>
 <a name="4"><span class="lineNum">       4 </span>            : </a>
 <a name="5"><span class="lineNum">       5 </span>            : abstract class ScreenBloc&lt;T, S extends ScreenBlocState&gt; extends Bloc&lt;T, S&gt; {</a>
-<a name="6"><span class="lineNum">       6 </span><span class="lineCov">          1 :   @mustCallSuper</span></a>
-<a name="7"><span class="lineNum">       7 </span><span class="lineCov">          1 :   ScreenBloc(S initialState) : super(initialState);</span></a>
+<a name="6"><span class="lineNum">       6 </span><span class="lineCov">          5 :   @mustCallSuper</span></a>
+<a name="7"><span class="lineNum">       7 </span><span class="lineCov">          5 :   ScreenBloc(S initialState) : super(initialState);</span></a>
 <a name="8"><span class="lineNum">       8 </span>            : </a>
-<a name="9"><span class="lineNum">       9 </span><span class="lineNoCov">          0 :   @mustCallSuper</span></a>
+<a name="9"><span class="lineNum">       9 </span><span class="lineCov">          3 :   @mustCallSuper</span></a>
 <a name="10"><span class="lineNum">      10 </span>            :   void dispose() {</a>
-<a name="11"><span class="lineNum">      11 </span><span class="lineNoCov">          0 :     this.close();</span></a>
+<a name="11"><span class="lineNum">      11 </span><span class="lineCov">          3 :     this.close();</span></a>
 <a name="12"><span class="lineNum">      12 </span>            :   }</a>
 <a name="13"><span class="lineNum">      13 </span>            : }</a>
 <a name="14"><span class="lineNum">      14 </span>            : </a>
 <a name="15"><span class="lineNum">      15 </span>            : abstract class ScreenBlocState extends Equatable {</a>
 <a name="16"><span class="lineNum">      16 </span>            :   final bool inAsyncCall;</a>
 <a name="17"><span class="lineNum">      17 </span>            : </a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">          1 :   ScreenBlocState(this.inAsyncCall);</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">          5 :   ScreenBlocState(this.inAsyncCall);</span></a>
 <a name="19"><span class="lineNum">      19 </span>            : </a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">          1 :   @override</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">          2 :   List&lt;Object&gt; get props =&gt; [inAsyncCall];</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">          3 :   @override</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">          6 :   List&lt;Object&gt; get props =&gt; [inAsyncCall];</span></a>
 <a name="22"><span class="lineNum">      22 </span>            : }</a>
 </pre>
       </td>

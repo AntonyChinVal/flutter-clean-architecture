@@ -15,19 +15,12 @@ class LoginScreen extends Screen {
 
 class LoginScreenState extends ScreenState<LoginBloc, LoginScreen> {
   LoginScreenState() : super(LoginBloc());
+  LoginScreenState.test(LoginBloc? loginBloc) : super(loginBloc);
 
   void login(String email, String password) {
     if (email.isNotEmpty && password.isNotEmpty) {
-      this.bloc.add(AuthenticateEvent(email, password));
+      this.bloc?.add(AuthenticateEvent(email, password));
     }
-  }
-
-  void googleLogin() {
-    this.bloc.add(GooggleAuthenticateEvent());
-  }
-
-  void facebookLogin() {
-    this.bloc.add(FacebookAuthenticateEvent());
   }
 
   void onForgetPassword() {}
@@ -36,10 +29,8 @@ class LoginScreenState extends ScreenState<LoginBloc, LoginScreen> {
   Widget buildTemplate() {
     return LoginTemplate(
       onLogin: this.login,
-      onGoogleLogin: this.googleLogin,
-      onFacebookLogin: this.facebookLogin,
       onForgetPassword: this.onForgetPassword,
-      inAsyncCall: this.bloc.state.inAsyncCall,
+      inAsyncCall: this.bloc?.state.inAsyncCall,
     );
   }
 }

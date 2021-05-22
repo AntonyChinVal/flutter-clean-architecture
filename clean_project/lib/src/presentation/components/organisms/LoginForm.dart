@@ -6,16 +6,9 @@ import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
   final void Function(String email, String password)? onLogin;
-  final void Function()? onGoogleLogin;
-  final void Function()? onFacebookLogin;
   final void Function()? onForgetPassword;
 
-  LoginForm(
-      {Key? key,
-      @required this.onLogin,
-      @required this.onGoogleLogin,
-      @required this.onFacebookLogin,
-      @required this.onForgetPassword})
+  LoginForm({Key? key, @required this.onLogin, @required this.onForgetPassword})
       : super(key: key);
 
   @override
@@ -62,14 +55,6 @@ class LoginFormState extends State<LoginForm> {
               title: 'Ingresar',
               color: Colors.green,
             ),
-            // DotEnv.env["FIREBASE"] == "true" ?
-            // CButton(onPressed: (){
-            //   widget.onGoogleLogin!();
-            // }, title: 'Google',color: Colors.red,) : SizedBox(),
-            // DotEnv.env["FIREBASE"] == "true" ?
-            // CButton(onPressed: (){
-            //   widget.onFacebookLogin!();
-            // }, title: 'Facebook',color: Colors.blue,) : SizedBox(),
           ],
         ));
   }

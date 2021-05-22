@@ -6,14 +6,14 @@ abstract class ScreenState<SB extends ScreenBloc, S extends Screen>
     extends State<S> with WidgetsBindingObserver {
   final GlobalKey<State<StatefulWidget>> globalKey =
       GlobalKey<State<StatefulWidget>>();
-  SB _bloc;
+  SB? _bloc;
   bool? _isMounted;
 
   ScreenState(this._bloc) {
     _isMounted = true;
   }
 
-  SB get bloc {
+  SB? get bloc {
     return this._bloc;
   }
 
@@ -28,18 +28,20 @@ abstract class ScreenState<SB extends ScreenBloc, S extends Screen>
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => this._bloc,
-        child: BlocBuilder<SB, ScreenBlocState>(builder: (context, state) {
-          return this.buildTemplate();
-        }));
+    return this._bloc != null
+        ? BlocProvider(
+            create: (context) => this._bloc!,
+            child: BlocBuilder<SB, ScreenBlocState>(builder: (context, state) {
+              return this.buildTemplate();
+            }))
+        : this.buildTemplate();
   }
 
   @override
   @mustCallSuper
   void dispose() {
     _isMounted = false;
-    _bloc.dispose();
+    _bloc?.dispose();
     super.dispose();
   }
 

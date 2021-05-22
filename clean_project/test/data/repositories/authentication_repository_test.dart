@@ -8,7 +8,7 @@ import 'package:http_mock_adapter/http_mock_adapter.dart';
 void main() {
   late Dio dio;
 
-  group('DioAdapter', () {
+  group('Authentication Repository', () {
     late DioAdapter dioAdapter;
     late AuthenticationRepositoryImpl authenticationRepositoryImpl;
 
@@ -18,7 +18,7 @@ void main() {
       authenticationRepositoryImpl = AuthenticationRepositoryImpl.test(dio);
     });
 
-    test('mocks the data', () async {
+    test('Authentication Repository, autenticate', () async {
       dioAdapter.onPost("authentication/authenticate",
           (request) => request.reply(200, "Token"));
       String token = await authenticationRepositoryImpl.authenticate(

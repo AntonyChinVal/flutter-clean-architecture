@@ -8,11 +8,16 @@ import 'package:injectable/injectable.dart';
 class GetFieldsUseCase extends UseCaseN<List<Field>> {
   FieldRepository? _fieldRepository;
 
+  GetFieldsUseCase.test();
   GetFieldsUseCase(this._fieldRepository) : super();
 
   @override
   Future<List<Field>> execute() async {
-    List<Field> fields = await this._fieldRepository!.getFields();
-    return fields;
+    try {
+      List<Field> fields = await this._fieldRepository!.getFields();
+      return fields;
+    } catch (ex) {
+      return [];
+    }
   }
 }

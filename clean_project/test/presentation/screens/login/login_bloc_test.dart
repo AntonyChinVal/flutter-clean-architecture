@@ -1,11 +1,15 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:clean_project/src/configuration/injectionConfiguration/injection_container.dart';
 import 'package:clean_project/src/domain/entities/user/AppUser.dart';
 import 'package:clean_project/src/domain/usecases/LoginUseCase.dart';
+import 'package:clean_project/src/presentation/components/templates/LoginTemplate.dart';
+import 'package:clean_project/src/presentation/screens/login/LoginScreen.dart';
 import 'package:clean_project/src/presentation/screens/login/bloc/LoginBloc.dart';
 import 'package:clean_project/src/presentation/screens/login/bloc/LoginEvent.dart';
 import 'package:clean_project/src/presentation/screens/login/bloc/LoginState.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import '../../test_material_app.dart';
 
 class LoginUseCaseTest extends LoginUseCase {
   LoginUseCaseTest.test() : super.test();
@@ -16,8 +20,13 @@ class LoginUseCaseTest extends LoginUseCase {
   }
 }
 
+class TestLoginScreen extends LoginScreen {
+  @override
+  LoginScreenState createState() =>
+      LoginScreenState.test(LoginBloc.test(LoginUseCaseTest.test()));
+}
+
 void main() {
-  configureInjection();
   loginBlocTest();
 }
 
@@ -39,5 +48,49 @@ void loginBlocTest() {
       act: (LoginBloc bloc) => bloc.add(AuthenticateEvent("User", "Pass")),
       expect: () => [AuthenticatingState(), LoginiInitState()],
     );
+    Widget _wrapTemplate(LoginTemplate loginTemplate) {
+      return TestMaterialAppWidget(
+        home: loginTemplate,
+      );
+    }
+
+    Widget _wrapScreen(LoginScreen loginScreen) {
+      return TestMaterialAppWidget(
+        home: loginScreen,
+      );
+    }
+
+    testWidgets("LoginTemplate built", (WidgetTester tester) async {
+      //  given
+      final widget = LoginTemplate(
+        onLogin: (email, password) {},
+        onForgetPassword: () {},
+      );
+
+      //  when
+      await tester.pumpWidget(_wrapTemplate(widget));
+
+      //  then
+      expect(find.byType(LoginTemplate), findsOneWidget);
+    });
+
+    testWidgets("LoginScreen built", (WidgetTester tester) async {
+      //  given
+      final widget = TestLoginScreen();
+      widget.getIcon();
+      widget.getName();
+      LoginScreenState state = widget.createState();
+      state.onForgetPassword();
+      state.login("email", "password");
+      state.didChangeAppLifecycleState(AppLifecycleState.inactive);
+      state.didChangeAppLifecycleState(AppLifecycleState.paused);
+      state.didChangeAppLifecycleState(AppLifecycleState.resumed);
+      state.didChangeAppLifecycleState(AppLifecycleState.detached);
+      //  when
+      await tester.pumpWidget(_wrapScreen(widget));
+
+      //  then
+      expect(find.byType(TestLoginScreen), findsOneWidget);
+    });
   });
 }

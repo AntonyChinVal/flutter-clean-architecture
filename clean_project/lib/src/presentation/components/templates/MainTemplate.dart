@@ -13,16 +13,18 @@ class MainTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(child: widgets![selectedIndex!]),
-      bottomNavigationBar: BottomNavigationBar(
-        items: widgets!
-            .map((e) =>
-                BottomNavigationBarItem(icon: e.getIcon(), label: e.getName()))
-            .toList(),
-        onTap: this.onTapHandler!,
-        currentIndex: this.selectedIndex!,
-      ),
-    );
+    return widgets != null
+        ? Scaffold(
+            body: SafeArea(child: widgets![selectedIndex!]),
+            bottomNavigationBar: BottomNavigationBar(
+              items: widgets!
+                  .map((e) => BottomNavigationBarItem(
+                      icon: e.getIcon(), label: e.getName()))
+                  .toList(),
+              onTap: this.onTapHandler!,
+              currentIndex: this.selectedIndex!,
+            ),
+          )
+        : Text("No Childs");
   }
 }

@@ -4,7 +4,7 @@ class TestSharedPreferencesRepository extends SharedPreferencesRepository {
   @override
   Future<String> getValue({String? key}) {
     return Future.delayed(
-      Duration(seconds: 2),
+      Duration(seconds: 1),
       () => 'Value',
     );
   }

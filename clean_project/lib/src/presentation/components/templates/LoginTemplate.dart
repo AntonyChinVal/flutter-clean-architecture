@@ -5,15 +5,11 @@ import 'package:flutter/material.dart';
 
 class LoginTemplate extends StatelessWidget {
   final void Function(String email, String password)? onLogin;
-  final void Function()? onGoogleLogin;
-  final void Function()? onFacebookLogin;
   final void Function()? onForgetPassword;
-  final bool inAsyncCall;
+  final bool? inAsyncCall;
 
   LoginTemplate(
       {@required this.onLogin,
-      @required this.onGoogleLogin,
-      @required this.onFacebookLogin,
       @required this.onForgetPassword,
       this.inAsyncCall = false});
 
@@ -38,14 +34,12 @@ class LoginTemplate extends StatelessWidget {
               ),
               LoginForm(
                 onLogin: this.onLogin,
-                onGoogleLogin: this.onGoogleLogin,
-                onFacebookLogin: this.onFacebookLogin,
                 onForgetPassword: this.onForgetPassword,
               ),
             ],
           ),
         ),
-        this.inAsyncCall ? CProgressModal() : SizedBox()
+        this.inAsyncCall! ? CProgressModal() : SizedBox()
       ],
     )));
   }

@@ -19,9 +19,6 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 ### Firebase Installation
 Install [FlutterFire](https://firebase.flutter.dev/) to be able to use Firebase.
 
-### Social Authentication
-Follow the steps indicated in [SocialAuth] to be able to use Google and Facebook authentication.
-
 ## Run
 
 ```flutter

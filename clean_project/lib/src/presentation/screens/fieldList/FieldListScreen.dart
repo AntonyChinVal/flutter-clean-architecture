@@ -27,9 +27,10 @@ class FieldListScreenState extends ScreenState<FieldListBloc, FieldListScreen> {
   final TextEditingController _searchController = TextEditingController();
 
   FieldListScreenState() : super(FieldListBloc());
+  FieldListScreenState.test(FieldListBloc? loginBloc) : super(loginBloc);
 
   void getFields() {
-    this.bloc.add(GetFieldListEvent());
+    this.bloc?.add(GetFieldListEvent());
   }
 
   @override
@@ -37,16 +38,16 @@ class FieldListScreenState extends ScreenState<FieldListBloc, FieldListScreen> {
     this.getFields();
     this._searchController.addListener(() {
       print(this._searchController.text);
-      this.bloc.add(FilterFieldsEvent(this._searchController.text));
+      this.bloc?.add(FilterFieldsEvent(this._searchController.text));
     });
   }
 
   @override
   Widget buildTemplate() {
     return FieldListTemplate(
-      fields: this.bloc.state.fields,
+      fields: this.bloc?.state.fields,
       searchController: _searchController,
-      inAsyncCall: this.bloc.state.inAsyncCall,
+      inAsyncCall: this.bloc?.state.inAsyncCall,
     );
   }
 

@@ -8,6 +8,9 @@ import 'package:injectable/injectable.dart';
 class FieldRepositoryImpl implements FieldRepository {
   Dio? _dioApiAuth;
 
+  FieldRepositoryImpl.test(Dio dioApi) {
+    this._dioApiAuth = dioApi;
+  }
   FieldRepositoryImpl() {
     this._dioApiAuth = dioApiAuth;
   }
@@ -20,8 +23,7 @@ class FieldRepositoryImpl implements FieldRepository {
           .toList();
       return list;
     }).catchError((error) {
-      print("ERROR");
-      print(error);
+      throw error;
     });
   }
 }

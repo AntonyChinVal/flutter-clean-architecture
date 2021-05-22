@@ -5,7 +5,7 @@ class TestUserRepository extends UserRepository {
   @override
   Future<AppUser> getUser() {
     return Future.delayed(
-      Duration(seconds: 2),
+      Duration(seconds: 1),
       () => AppUser(),
     );
     ;

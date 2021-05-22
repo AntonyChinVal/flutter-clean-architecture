@@ -6,7 +6,7 @@ import 'package:clean_project/src/presentation/components/organisms/CProgressMod
 import 'package:flutter/material.dart';
 
 class FieldListTemplate extends StatelessWidget {
-  final bool inAsyncCall;
+  final bool? inAsyncCall;
   final List<Field>? fields;
   final TextEditingController? searchController;
 
@@ -47,7 +47,7 @@ class FieldListTemplate extends StatelessWidget {
         SizedBox(
           height: 30,
         ),
-        this.inAsyncCall ? CProgressModal() : SizedBox(),
+        this.inAsyncCall! ? CProgressModal() : SizedBox(),
         Container(
           padding: EdgeInsets.only(left: 15),
           alignment: Alignment.centerLeft,

@@ -14,7 +14,21 @@ flutter pub get
 flutter packages pub run build_runner build --delete-conflicting-outputs
 ```
 
+### Firebase Installation
+Install [FlutterFire](https://firebase.flutter.dev/) to be able to use Firebase.
+
 ## Run
+
+```flutter
+flutter run
+```
+
+## Run with Firebase
+To compile with firebase, in `.env` change the value of `FIREBASE`.
+
+```flutter
+FIREBASE=true
+```
 
 ```flutter
 flutter run

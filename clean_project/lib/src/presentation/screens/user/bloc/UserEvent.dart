@@ -1,1 +1,3 @@
-abstract class UserEvent{}
+abstract class UserEvent {}
+
+class UserDefaultEvent extends UserEvent {}
