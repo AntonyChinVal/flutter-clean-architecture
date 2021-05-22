@@ -1,4 +1,4 @@
-![travis](https://travis-ci.com/AntonyChinVal/flutter-clean-architecture.svg?branch=master)
+[![Build Status](https://travis-ci.com/AntonyChinVal/flutter-clean-architecture.svg?branch=master)](https://travis-ci.com/AntonyChinVal/flutter-clean-architecture)
 
 # CleanFlutter
 
