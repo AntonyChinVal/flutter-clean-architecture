@@ -23,6 +23,12 @@ Install [FlutterFire](https://firebase.flutter.dev/) to be able to use Firebase.
 flutter run
 ```
 
+## Run Test
+
+```flutter
+flutter test --coverage
+```
+
 ## Run with Firebase
 To compile with firebase, in `.env` change the value of `FIREBASE`.
 
