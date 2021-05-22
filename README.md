@@ -1,3 +1,5 @@
+![travis](https://travis-ci.com/AntonyChinVal/flutter-clean-architecture.svg?branch=master)
+
 # CleanFlutter
 
 A Flutter project with Clean Architecture and BLoC. **For the link of the project presentation, click [here](https://prezi.com/view/XNsm2gaEECR1xur67XOV/).**
