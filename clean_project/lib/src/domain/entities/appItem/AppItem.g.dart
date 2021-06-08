@@ -1,19 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'Field.dart';
+part of 'AppItem.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Field _$FieldFromJson(Map<String, dynamic> json) {
-  return Field(
+AppItem _$AppItemFromJson(Map<String, dynamic> json) {
+  return AppItem(
     name: json['name'] as String?,
     image: json['image'] as String?,
   );
 }
 
-Map<String, dynamic> _$FieldToJson(Field instance) => <String, dynamic>{
+Map<String, dynamic> _$AppItemToJson(AppItem instance) => <String, dynamic>{
       'name': instance.name,
       'image': instance.image,
     };

@@ -1,6 +1,6 @@
 import 'package:clean_project/src/presentation/components/templates/MainTemplate.dart';
 import 'package:clean_project/src/presentation/core/Screen.dart';
-import 'package:clean_project/src/presentation/screens/fieldList/FieldListScreen.dart';
+import 'package:clean_project/src/presentation/screens/appItemList/AppItemListScreen.dart';
 import 'package:clean_project/src/presentation/screens/main/bloc/MainBloc.dart';
 import 'package:clean_project/src/presentation/screens/user/UserScreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,7 +15,7 @@ class MainScreen extends Screen {
 }
 
 class MainScreenState extends ScreenState<MainBloc, MainScreen> {
-  List<Screen> _widgets = <Screen>[FieldListScreen(), UserScreen()];
+  List<Screen> _widgets = <Screen>[AppItemListScreen(), UserScreen()];
   int _selectedIndex = 0;
 
   MainScreenState() : super(MainBloc());

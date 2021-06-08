@@ -1,10 +1,10 @@
-import 'package:clean_project/src/domain/entities/field/Field.dart';
+import 'package:clean_project/src/domain/entities/appItem/AppItem.dart';
 import 'package:flutter/material.dart';
 
-class CFootballFieldItem extends StatelessWidget {
-  final Field? item;
+class CAppItem extends StatelessWidget {
+  final AppItem? item;
 
-  CFootballFieldItem({@required this.item});
+  CAppItem({@required this.item});
 
   @override
   Widget build(BuildContext context) {

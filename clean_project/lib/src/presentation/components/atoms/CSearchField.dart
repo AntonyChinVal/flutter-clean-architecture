@@ -17,7 +17,7 @@ class CSearchField extends StatelessWidget {
           Icons.search,
           color: Color(0xFFBEC2CE),
         ),
-        hintText: "Buscar",
+        hintText: "Search",
         hintStyle: TextStyle(color: Color(0xFFBEC2CE)),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xFFEAECEF), width: 1.0),

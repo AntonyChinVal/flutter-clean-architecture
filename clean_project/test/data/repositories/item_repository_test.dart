@@ -1,5 +1,5 @@
-import 'package:clean_project/src/data/repositories/FieldRepository.dart';
-import 'package:clean_project/src/domain/entities/field/Field.dart';
+import 'package:clean_project/src/data/repositories/AppItemRepository.dart';
+import 'package:clean_project/src/domain/entities/appItem/AppItem.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
@@ -7,32 +7,32 @@ import 'package:http_mock_adapter/http_mock_adapter.dart';
 void main() {
   late Dio dio;
 
-  group('Field Repository', () {
+  group('AppItem Repository', () {
     late DioAdapter dioAdapter;
-    late FieldRepositoryImpl fieldRepositoryImpl;
+    late AppItemRepositoryImpl appItemRepositoryImpl;
 
     setUpAll(() {
       dioAdapter = DioAdapter();
       dio = Dio()..httpClientAdapter = dioAdapter;
-      fieldRepositoryImpl = FieldRepositoryImpl.test(dio);
+      appItemRepositoryImpl = AppItemRepositoryImpl.test(dio);
     });
 
-    test('Field Repository get fields', () async {
+    test('AppItem Repository get items', () async {
       dioAdapter.onGet("field/list",
-          (request) => request.reply(200, [Field(name: "Field1")]));
-      List<Field> fields = await fieldRepositoryImpl.getFields();
+          (request) => request.reply(200, [AppItem(name: "AppItem1")]));
+      List<AppItem> items = await appItemRepositoryImpl.getAppItems();
 
-      expect(fields.isNotEmpty, true);
+      expect(items.isNotEmpty, true);
     });
 
-    test('Field Repository get fields fail', () async {
+    test('AppItem Repository get items fail', () async {
       dioAdapter.onGet(
           "field/list",
           (request) => request.throws(500,
               DioError(requestOptions: RequestOptions(path: "field/list"))));
 
       var serviceError;
-      await fieldRepositoryImpl.getFields().onError((error, stackTrace) {
+      await appItemRepositoryImpl.getAppItems().onError((error, stackTrace) {
         serviceError = error;
         return [];
       });

@@ -1,17 +1,17 @@
+import 'package:clean_project/src/domain/entities/appItem/AppItem.dart';
 import 'package:clean_project/src/presentation/components/atoms/CSearchField.dart';
 import 'package:clean_project/src/presentation/components/atoms/CTitle.dart';
-import 'package:clean_project/src/presentation/components/organisms/CFootballFieldList.dart';
-import 'package:clean_project/src/domain/entities/field/Field.dart';
+import 'package:clean_project/src/presentation/components/organisms/CAppItemList.dart';
 import 'package:clean_project/src/presentation/components/organisms/CProgressModal.dart';
 import 'package:flutter/material.dart';
 
-class FieldListTemplate extends StatelessWidget {
+class AppItemListTemplate extends StatelessWidget {
   final bool? inAsyncCall;
-  final List<Field>? fields;
+  final List<AppItem>? items;
   final TextEditingController? searchController;
 
-  FieldListTemplate(
-      {@required this.fields,
+  AppItemListTemplate(
+      {@required this.items,
       @required this.searchController,
       this.inAsyncCall = true});
 
@@ -60,7 +60,7 @@ class FieldListTemplate extends StatelessWidget {
         SizedBox(
           height: 30,
         ),
-        Flexible(child: CFootballFieldList(items: this.fields!))
+        Flexible(child: CAppItemList(items: this.items!))
       ],
     )));
   }

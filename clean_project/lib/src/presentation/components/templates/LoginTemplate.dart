@@ -27,8 +27,8 @@ class LoginTemplate extends StatelessWidget {
                 height: 30,
               ),
               const CTitle(
-                  text: "Hola,\n\n"
-                      "Bienvenido!"),
+                  text: "Hello,\n\n"
+                      "Welcome!"),
               SizedBox(
                 height: 20,
               ),
