@@ -15,9 +15,10 @@ class LoginScreen extends Screen {
 
 class LoginScreenState extends ScreenState<LoginBloc, LoginScreen> {
   LoginScreenState() : super(LoginBloc());
-  LoginScreenState.test(LoginBloc? loginBloc) : super(loginBloc);
+  LoginScreenState.test(LoginBloc? bloc) : super(bloc);
 
   void login(String email, String password) {
+    this.bloc?.add(AuthenticateEvent(email, password));
     if (email.isNotEmpty && password.isNotEmpty) {
       this.bloc?.add(AuthenticateEvent(email, password));
     }
@@ -30,7 +31,7 @@ class LoginScreenState extends ScreenState<LoginBloc, LoginScreen> {
     return LoginTemplate(
       onLogin: this.login,
       onForgetPassword: this.onForgetPassword,
-      inAsyncCall: this.bloc?.state.inAsyncCall,
+      inAsyncCall: this.bloc!.state.inAsyncCall,
     );
   }
 }

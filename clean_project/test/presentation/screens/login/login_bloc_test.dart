@@ -82,10 +82,6 @@ void loginBlocTest() {
       LoginScreenState state = widget.createState();
       state.onForgetPassword();
       state.login("email", "password");
-      state.didChangeAppLifecycleState(AppLifecycleState.inactive);
-      state.didChangeAppLifecycleState(AppLifecycleState.paused);
-      state.didChangeAppLifecycleState(AppLifecycleState.resumed);
-      state.didChangeAppLifecycleState(AppLifecycleState.detached);
       //  when
       await tester.pumpWidget(_wrapScreen(widget));
 

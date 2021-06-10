@@ -28,7 +28,7 @@ class AppItemListScreenState
   final TextEditingController _searchController = TextEditingController();
 
   AppItemListScreenState() : super(AppItemListBloc());
-  AppItemListScreenState.test(AppItemListBloc? loginBloc) : super(loginBloc);
+  AppItemListScreenState.test(AppItemListBloc? bloc) : super(bloc);
 
   void getAppItems() {
     this.bloc?.add(GetAppItemListEvent());

@@ -3,15 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class ScreenState<SB extends ScreenBloc, S extends Screen>
-    extends State<S> with WidgetsBindingObserver {
+    extends State<S> {
   final GlobalKey<State<StatefulWidget>> globalKey =
       GlobalKey<State<StatefulWidget>>();
   SB? _bloc;
-  bool? _isMounted;
 
-  ScreenState(this._bloc) {
-    _isMounted = true;
-  }
+  ScreenState(this._bloc);
 
   SB? get bloc {
     return this._bloc;
@@ -37,43 +34,27 @@ abstract class ScreenState<SB extends ScreenBloc, S extends Screen>
         : this.buildTemplate();
   }
 
+  // MARK: Only BlocProvider
+  // @override
+  // Widget build(BuildContext context) {
+  //   return this._bloc != null
+  //       ? BlocProvider(
+  //           create: (context) => this._bloc!,
+  //           child: this.buildTemplate(),
+  //         )
+  //       : this.buildTemplate();
+  // }
+
   @override
   @mustCallSuper
   void dispose() {
-    _isMounted = false;
     _bloc?.dispose();
     super.dispose();
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (_isMounted!) {
-      switch (state) {
-        case AppLifecycleState.inactive:
-          onInActive();
-          break;
-        case AppLifecycleState.paused:
-          onPaused();
-          break;
-        case AppLifecycleState.resumed:
-          onResumed();
-          break;
-        case AppLifecycleState.detached:
-          onDetached();
-          break;
-      }
-    }
+  void afterInitState() {
+    print("After Init State");
   }
-
-  void afterInitState() {}
-
-  void onInActive() {}
-
-  void onPaused() {}
-
-  void onResumed() {}
-
-  void onDetached() {}
 }
 
 abstract class Screen extends StatefulWidget {

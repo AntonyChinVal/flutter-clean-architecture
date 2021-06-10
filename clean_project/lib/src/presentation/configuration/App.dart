@@ -8,24 +8,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyApp extends StatelessWidget {
-
   final NavigationService _navigationService = getIt<NavigationService>();
   final RouteService _routeService = getIt<RouteService>();
 
   @override
   Widget build(BuildContext context) {
-    return  MultiBlocProvider(
+    return MultiBlocProvider(
       providers: [
         BlocProvider<GeneralBloc>(
           create: (context) => GeneralBloc(),
         )
       ],
       child: MaterialApp(
-        navigatorKey: _navigationService.navigatorKey,
-        title: 'My App',
-        onGenerateRoute: _routeService.generateRoutes,
-        initialRoute:  LoginScreen.routeName
-      ),
-    ); 
+          navigatorKey: _navigationService.navigatorKey,
+          title: 'My App',
+          onGenerateRoute: _routeService.generateRoutes,
+          initialRoute: LoginScreen.routeName),
+    );
   }
 }

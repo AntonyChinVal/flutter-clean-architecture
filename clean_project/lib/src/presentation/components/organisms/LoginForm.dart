@@ -2,7 +2,6 @@ import 'package:clean_project/src/presentation/components/atoms/CButton.dart';
 import 'package:clean_project/src/presentation/components/atoms/CTextFormField.dart';
 import 'package:clean_project/src/presentation/components/atoms/CTextLink.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
 class LoginForm extends StatefulWidget {
   final void Function(String email, String password)? onLogin;
@@ -22,27 +21,28 @@ class LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
+    print("Build LoginForm");
     return Form(
         key: formKey,
         child: Column(
           children: <Widget>[
-            CTextFormField(
-              label: 'Username',
-              controller: userController,
-            ),
+            // CTextFormField(
+            //   label: 'Username',
+            //   controller: userController,
+            // ),
             SizedBox(
               height: 20,
             ),
-            CTextFormField(
-              label: 'Password',
-              controller: passwordController,
-            ),
+            // CTextFormField(
+            //   label: 'Password',
+            //   controller: passwordController,
+            // ),
             SizedBox(
               height: 30,
             ),
             CTextLink(
               onPressed: widget.onForgetPassword,
-              linkTitle: 'Olvidaste tu contraseña?',
+              linkTitle: 'Forgot password?',
               alignment: MainAxisAlignment.end,
             ),
             SizedBox(
@@ -52,7 +52,7 @@ class LoginFormState extends State<LoginForm> {
               onPressed: () {
                 widget.onLogin!(userController.text, passwordController.text);
               },
-              title: 'Ingresar',
+              title: 'Sign in',
               color: Colors.green,
             ),
           ],
