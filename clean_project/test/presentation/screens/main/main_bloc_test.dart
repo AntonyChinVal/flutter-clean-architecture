@@ -1,11 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:clean_project/src/presentation/components/templates/MainTemplate.dart';
+import 'package:clean_project/src/presentation/screens/main/MainTemplate.dart';
 import 'package:clean_project/src/presentation/screens/main/bloc/MainBloc.dart';
 import 'package:clean_project/src/presentation/screens/main/bloc/MainEvent.dart';
 import 'package:clean_project/src/presentation/screens/main/bloc/MainState.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import '../../test_material_app.dart';
 
 void main() {

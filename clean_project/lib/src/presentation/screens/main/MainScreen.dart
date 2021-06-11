@@ -1,10 +1,10 @@
-import 'package:clean_project/src/presentation/components/templates/MainTemplate.dart';
 import 'package:clean_project/src/presentation/core/Screen.dart';
 import 'package:clean_project/src/presentation/screens/appItemList/AppItemListScreen.dart';
 import 'package:clean_project/src/presentation/screens/main/bloc/MainBloc.dart';
 import 'package:clean_project/src/presentation/screens/user/UserScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'MainTemplate.dart';
 
 class MainScreen extends Screen {
   static const String routeName = "Main";

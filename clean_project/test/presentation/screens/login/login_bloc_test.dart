@@ -1,8 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:clean_project/src/domain/entities/user/AppUser.dart';
 import 'package:clean_project/src/domain/usecases/LoginUseCase.dart';
-import 'package:clean_project/src/presentation/components/templates/LoginTemplate.dart';
 import 'package:clean_project/src/presentation/screens/login/LoginScreen.dart';
+import 'package:clean_project/src/presentation/screens/login/LoginTemplate.dart';
 import 'package:clean_project/src/presentation/screens/login/bloc/LoginBloc.dart';
 import 'package:clean_project/src/presentation/screens/login/bloc/LoginEvent.dart';
 import 'package:clean_project/src/presentation/screens/login/bloc/LoginState.dart';

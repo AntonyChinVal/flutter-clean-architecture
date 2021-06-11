@@ -1,5 +1,5 @@
-import 'package:clean_project/src/presentation/components/templates/UserTemplate.dart';
 import 'package:clean_project/src/presentation/screens/user/UserScreen.dart';
+import 'package:clean_project/src/presentation/screens/user/UserTemplate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import '../../test_material_app.dart';

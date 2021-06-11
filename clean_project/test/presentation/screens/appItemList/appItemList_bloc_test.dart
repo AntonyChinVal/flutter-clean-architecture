@@ -1,8 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:clean_project/src/domain/entities/appItem/AppItem.dart';
 import 'package:clean_project/src/domain/usecases/GetAppItemsUseCase.dart';
-import 'package:clean_project/src/presentation/components/templates/AppItemListTemplate.dart';
 import 'package:clean_project/src/presentation/screens/appItemList/AppItemListScreen.dart';
+import 'package:clean_project/src/presentation/screens/appItemList/AppItemListTemplate.dart';
 import 'package:clean_project/src/presentation/screens/appItemList/bloc/AppItemListBloc.dart';
 import 'package:clean_project/src/presentation/screens/appItemList/bloc/AppItemListEvent.dart';
 import 'package:clean_project/src/presentation/screens/appItemList/bloc/AppItemListState.dart';

@@ -1,9 +1,9 @@
-import 'package:clean_project/src/presentation/components/templates/AppItemListTemplate.dart';
 import 'package:clean_project/src/presentation/core/Screen.dart';
 import 'package:clean_project/src/presentation/screens/appItemList/bloc/AppItemListBloc.dart';
 import 'package:clean_project/src/presentation/screens/appItemList/bloc/AppItemListEvent.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'AppItemListTemplate.dart';
 
 class AppItemListScreen extends Screen {
   static const String routeName = "AppItemList";
