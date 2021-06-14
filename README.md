@@ -23,39 +23,27 @@ This rule says that source code dependencies can only point inwards.
 
 ## Domain
 The `Domain` layer defines the business logic of the application.
-
-### Entity
-Enterprise wide business rules.
-
-### Use Case
-Application specific business rules.
-
-### Repository
-Abstract classes that define the expected functionality of outer layers.
+* Core :  The main classes that are used in the `Domain` layer.
+* Entities : Enterprise wide business rules.
+* UseCases : Application specific business rules.
+* Repositories : Abstract classes that define the expected functionality of outer layers.
 
 ## Data
 The `Data` layer is responsible for data retrieval.
-
-### Repository
-Concrete classes that implement the repository from the domain layer.
-
-### External Data
-Data source(Rest Api, Firebase , Device)
+* Repositories : Concrete classes that implement the repository from the domain layer.
+* ExternalData : Data source(Rest Api, Firebase , Device).
 
 ## Presenter
 The `Presenter` layer is the representation of the application.
-
-### Screen
-Represents the user interface, events, and lifecycle.
-
-### Template
-All the widgets that build the screen.
-
-### BloC
-Component that converts a sequence of incoming events into a sequence of outgoing states.
+* Core : The main classes that are used in the `Presenter` layer.
+* Configuration : Initial settings of the `Presenter` layer (Navigation, Initialization).
+* Screens : Represents the user interface, events, and lifecycle.
+    * Template : All the widgets that build the screen.
+    * BloC : Component that converts a sequence of incoming events into a sequence of outgoing states.
+* Components : Interactive widgets for creating a user interface.
 
 ## Configuration
-The `Configuration` layer contains all the general app configurations(Platform(IOS,Android), Firebase, Dependency Injection).
+The `Configuration` layer contains all the general app configurations (Platform(IOS,Android), Firebase, Dependency Injection).
 
 # Installation
 
@@ -85,7 +73,7 @@ flutter test --coverage
 ```
 
 ## Run with Firebase
-To compile with firebase, in `.env` change the value of `FIREBASE`.
+To compile with firebase, change the value of `FIREBASE` in `.env`.
 
 ```flutter
 FIREBASE=true
