@@ -5,7 +5,7 @@ import 'package:clean_project/src/domain/repositories/AppItemRepository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class GetAppItemsUseCase extends UseCaseN<List<AppItem>> {
+class GetAppItemsUseCase extends NoParamUseCase<List<AppItem>> {
   AppItemRepository? _appItemRepository;
 
   GetAppItemsUseCase.test();

@@ -8,9 +8,9 @@ abstract class UseCase<T, P> {
   Future<T> execute(P params);
 }
 
-abstract class UseCaseN<T> {
+abstract class NoParamUseCase<T> {
   @mustCallSuper
-  UseCaseN();
+  NoParamUseCase();
 
   Future<T> execute();
 }
