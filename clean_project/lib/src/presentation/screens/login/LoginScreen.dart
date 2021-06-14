@@ -18,7 +18,6 @@ class LoginScreenState extends ScreenState<LoginBloc, LoginScreen> {
   LoginScreenState.test(LoginBloc? bloc) : super(bloc);
 
   void login(String email, String password) {
-    this.bloc?.add(AuthenticateEvent(email, password));
     if (email.isNotEmpty && password.isNotEmpty) {
       this.bloc?.add(AuthenticateEvent(email, password));
     }

@@ -26,17 +26,17 @@ class LoginFormState extends State<LoginForm> {
         key: formKey,
         child: Column(
           children: <Widget>[
-            // CTextFormField(
-            //   label: 'Username',
-            //   controller: userController,
-            // ),
+            CTextFormField(
+              label: 'Username',
+              controller: userController,
+            ),
             SizedBox(
               height: 20,
             ),
-            // CTextFormField(
-            //   label: 'Password',
-            //   controller: passwordController,
-            // ),
+            CTextFormField(
+              label: 'Password',
+              controller: passwordController,
+            ),
             SizedBox(
               height: 30,
             ),
