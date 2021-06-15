@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class MainTemplate extends StatelessWidget {
   final int? selectedIndex;
-  final List<Screen>? widgets;
+  final List<Widget>? widgets;
   final Function(int)? onTapHandler;
 
   MainTemplate(
@@ -17,10 +17,11 @@ class MainTemplate extends StatelessWidget {
         ? Scaffold(
             body: SafeArea(child: widgets![selectedIndex!]),
             bottomNavigationBar: BottomNavigationBar(
-              items: widgets!
-                  .map((e) => BottomNavigationBarItem(
-                      icon: e.getIcon(), label: e.getName()))
-                  .toList(),
+              items: widgets!.map((e) {
+                var screen = e as Screen;
+                return BottomNavigationBarItem(
+                    icon: screen.getIcon(), label: screen.getName());
+              }).toList(),
               onTap: this.onTapHandler!,
               currentIndex: this.selectedIndex!,
             ),

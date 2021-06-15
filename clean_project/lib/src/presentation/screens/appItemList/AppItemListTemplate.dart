@@ -1,19 +1,15 @@
-import 'package:clean_project/src/domain/entities/appItem/AppItem.dart';
 import 'package:clean_project/src/presentation/components/atoms/CSearchField.dart';
 import 'package:clean_project/src/presentation/components/atoms/CTitle.dart';
 import 'package:clean_project/src/presentation/components/organisms/CAppItemList.dart';
 import 'package:clean_project/src/presentation/components/organisms/CProgressModal.dart';
+import 'package:clean_project/src/presentation/screens/appItemList/AppItemListNotifier.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AppItemListTemplate extends StatelessWidget {
-  final bool? inAsyncCall;
-  final List<AppItem>? items;
   final TextEditingController? searchController;
 
-  AppItemListTemplate(
-      {@required this.items,
-      @required this.searchController,
-      this.inAsyncCall = true});
+  AppItemListTemplate({@required this.searchController});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +43,9 @@ class AppItemListTemplate extends StatelessWidget {
         SizedBox(
           height: 30,
         ),
-        this.inAsyncCall! ? CProgressModal() : SizedBox(),
+        context.watch<AppItemListNotifier>().inAsyncCall
+            ? CProgressModal()
+            : SizedBox(),
         Container(
           padding: EdgeInsets.only(left: 15),
           alignment: Alignment.centerLeft,
@@ -60,7 +58,9 @@ class AppItemListTemplate extends StatelessWidget {
         SizedBox(
           height: 30,
         ),
-        Flexible(child: CAppItemList(items: this.items!))
+        Flexible(
+            child: CAppItemList(
+                items: context.watch<AppItemListNotifier>().appItems))
       ],
     )));
   }

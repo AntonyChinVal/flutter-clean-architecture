@@ -1,6 +1,6 @@
-import 'package:clean_project/src/presentation/core/ScreenBloc.dart';
+import 'package:clean_project/src/presentation/core/BlocScreen.dart';
 
-abstract class LoginState extends ScreenBlocState {
+abstract class LoginState extends BlocState {
   LoginState(bool isLoading) : super(isLoading);
 }
 

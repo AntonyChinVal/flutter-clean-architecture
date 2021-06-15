@@ -1,24 +1,20 @@
 import 'package:clean_project/src/presentation/core/Screen.dart';
 import 'package:clean_project/src/presentation/screens/appItemList/AppItemListScreen.dart';
-import 'package:clean_project/src/presentation/screens/main/bloc/MainBloc.dart';
 import 'package:clean_project/src/presentation/screens/user/UserScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'MainTemplate.dart';
 
-class MainScreen extends Screen {
+class MainScreen extends StatefulScreen {
   static const String routeName = "Main";
-  MainScreen({Key? key}) : super(key: key);
 
   @override
   MainScreenState createState() => MainScreenState();
 }
 
-class MainScreenState extends ScreenState<MainBloc, MainScreen> {
-  List<Screen> _widgets = <Screen>[AppItemListScreen(), UserScreen()];
+class MainScreenState extends ScreenState<MainScreen> {
+  List<Widget> _widgets = <Widget>[AppItemListScreen(), UserScreen()];
   int _selectedIndex = 0;
-
-  MainScreenState() : super(MainBloc());
 
   void _onTapHandler(int index) {
     setState(() {

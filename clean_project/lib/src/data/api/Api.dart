@@ -12,11 +12,6 @@ void addAuthInterceptor() {
     dioApiAuth.interceptors.requestLock.lock();
     handler.next(options);
     dioApiAuth.interceptors.requestLock.unlock();
-    //   options.headers['token'] = value;
-    //   handler.next(options);
-    // }).catchError((error, stackTrace) {
-    //   handler.reject(error, true);
-    // }).whenComplete(() => dioApiAuth.interceptors.requestLock.unlock());
   }));
 }
 

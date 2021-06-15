@@ -1,13 +1,12 @@
+import 'package:clean_project/src/presentation/core/ProviderScreen.dart';
 import 'package:clean_project/src/presentation/core/Screen.dart';
-import 'package:clean_project/src/presentation/screens/appItemList/bloc/AppItemListBloc.dart';
-import 'package:clean_project/src/presentation/screens/appItemList/bloc/AppItemListEvent.dart';
+import 'package:clean_project/src/presentation/screens/appItemList/AppItemListNotifier.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'AppItemListTemplate.dart';
 
-class AppItemListScreen extends Screen {
+class AppItemListScreen extends StatefulScreen {
   static const String routeName = "AppItemList";
-  AppItemListScreen({Key? key}) : super(key: key);
 
   @override
   String getName() {
@@ -24,31 +23,28 @@ class AppItemListScreen extends Screen {
 }
 
 class AppItemListScreenState
-    extends ScreenState<AppItemListBloc, AppItemListScreen> {
+    extends ProviderScreenState<AppItemListNotifier, AppItemListScreen> {
   final TextEditingController _searchController = TextEditingController();
 
-  AppItemListScreenState() : super(AppItemListBloc());
-  AppItemListScreenState.test(AppItemListBloc? bloc) : super(bloc);
+  AppItemListScreenState() : super(AppItemListNotifier());
+  AppItemListScreenState.test(AppItemListNotifier notifier) : super(notifier);
 
   void getAppItems() {
-    this.bloc?.add(GetAppItemListEvent());
+    this.changeNotifier.getAppItems();
   }
 
   @override
   void afterInitState() {
     this.getAppItems();
     this._searchController.addListener(() {
-      print(this._searchController.text);
-      this.bloc?.add(FilterAppItemsEvent(this._searchController.text));
+      this.changeNotifier.filterAppItems(this._searchController.text);
     });
   }
 
   @override
   Widget buildTemplate() {
     return AppItemListTemplate(
-      items: this.bloc?.state.appItems,
       searchController: _searchController,
-      inAsyncCall: this.bloc?.state.inAsyncCall,
     );
   }
 

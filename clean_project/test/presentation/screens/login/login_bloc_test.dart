@@ -20,12 +20,6 @@ class LoginUseCaseTest extends LoginUseCase {
   }
 }
 
-class TestLoginScreen extends LoginScreen {
-  @override
-  LoginScreenState createState() =>
-      LoginScreenState.test(LoginBloc.test(LoginUseCaseTest.test()));
-}
-
 void main() {
   loginBlocTest();
 }
@@ -76,17 +70,16 @@ void loginBlocTest() {
 
     testWidgets("LoginScreen built", (WidgetTester tester) async {
       //  given
-      final widget = TestLoginScreen();
+      final widget = LoginScreen.test(LoginBloc.test(LoginUseCaseTest.test()));
       widget.getIcon();
       widget.getName();
-      LoginScreenState state = widget.createState();
-      state.onForgetPassword();
-      state.login("email", "password");
+      widget.onForgetPassword();
+      widget.login("email", "password");
       //  when
       await tester.pumpWidget(_wrapScreen(widget));
 
       //  then
-      expect(find.byType(TestLoginScreen), findsOneWidget);
+      expect(find.byType(LoginScreen), findsOneWidget);
     });
   });
 }

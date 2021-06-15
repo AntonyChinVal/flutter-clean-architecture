@@ -33,10 +33,10 @@ The `Data` layer is responsible for data retrieval.
 * Repositories : Concrete classes that implement the repository from the domain layer.
 * ExternalData : Data source(Rest Api, Firebase , Device).
 
-## Presenter
-The `Presenter` layer is the representation of the application.
-* Core : The main classes that are used in the `Presenter` layer.
-* Configuration : Initial settings of the `Presenter` layer (Navigation, Initialization).
+## Presentetation
+The `Presentetation` layer is the representation of the application.
+* Core : The main classes that are used in the `Presentetation` layer.
+* Configuration : Initial settings of the `Presentetation` layer (Navigation, Initialization).
 * Screens : Represents the user interface, events, and lifecycle.
     * Template : All the widgets that build the screen.
     * BloC : Component that converts a sequence of incoming events into a sequence of outgoing states.
