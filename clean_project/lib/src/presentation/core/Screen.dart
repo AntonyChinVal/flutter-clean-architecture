@@ -14,6 +14,13 @@ abstract class Screen {
 }
 
 /*
+ *  TemplateBuilder
+ */
+abstract class TemplateBuilder {
+  Widget buildTemplate();
+}
+
+/*
  *  StatefulScreen
  */
 abstract class StatefulScreen extends StatefulWidget with Screen {
@@ -23,11 +30,10 @@ abstract class StatefulScreen extends StatefulWidget with Screen {
 /*
  *  ScreenState
  */
-abstract class ScreenState<S extends StatefulScreen> extends State<S> {
+abstract class ScreenState<S extends StatefulScreen> extends State<S>
+    with TemplateBuilder {
   final GlobalKey<State<StatefulWidget>> globalKey =
       GlobalKey<State<StatefulWidget>>();
-
-  Widget buildTemplate();
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +55,9 @@ abstract class ScreenState<S extends StatefulScreen> extends State<S> {
 /*
  *  StatelessScreen
  */
-abstract class StatelessScreen extends StatelessWidget with Screen {
+abstract class StatelessScreen extends StatelessWidget
+    with Screen, TemplateBuilder {
   const StatelessScreen({Key? key}) : super(key: key);
-
-  Widget buildTemplate();
 
   @override
   Widget build(BuildContext context) {

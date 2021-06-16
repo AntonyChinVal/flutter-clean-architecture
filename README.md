@@ -87,13 +87,15 @@ flutter run
 * [Dio, Http Client](https://pub.dev/packages/dio)
 * [GetIt, Service Locator](https://pub.dev/packages/get_it)
 * [Injectable](https://pub.dev/packages/injectable)
+* [Dotenv](https://pub.dev/packages/flutter_dotenv)
 
 # References
 * [The Clean Code Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 * [Uncle Bob](http://cleancoder.com/products)
 * [Clean Architecture Guide](https://proandroiddev.com/clean-architecture-data-flow-dependency-rule-615ffdd79e29)
-
 * [Multiple ways of defining Clean Architecture layers](https://proandroiddev.com/multiple-ways-of-defining-clean-architecture-layers-bbb70afa5d4a)
+* [Security Tips](https://joshuamdeguzman.com/10-tips-to-secure-your-flutter-mobile-apps/)
+* [SSL Pinning](https://pub.dev/packages/http_certificate_pinning)
 # Help
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
