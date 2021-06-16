@@ -39,7 +39,6 @@ The `Presentetation` layer is the representation of the application.
 * Configuration : Initial settings of the `Presentetation` layer (Navigation, Initialization).
 * Screens : Represents the user interface, events, and lifecycle.
     * Template : All the widgets that build the screen.
-    * BloC : Component that converts a sequence of incoming events into a sequence of outgoing states.
 * Components : Interactive widgets for creating a user interface.
 
 ## Configuration
@@ -82,7 +81,19 @@ FIREBASE=true
 ```flutter
 flutter run
 ```
+# Libraries
+* [Flutter BloC](https://pub.dev/packages/flutter_bloc)
+* [Provider](https://pub.dev/packages/provider)
+* [Dio, Http Client](https://pub.dev/packages/dio)
+* [GetIt, Service Locator](https://pub.dev/packages/get_it)
+* [Injectable](https://pub.dev/packages/injectable)
 
+# References
+* [Robert C. Martin, The Clean Code Blog](Bloghttps://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+* [Uncle Bob](http://cleancoder.com/products)
+* [Clean Architecture Guide](https://proandroiddev.com/clean-architecture-data-flow-dependency-rule-615ffdd79e29)
+
+* [Multiple ways of defining Clean Architecture layers](https://proandroiddev.com/multiple-ways-of-defining-clean-architecture-layers-bbb70afa5d4a)
 # Help
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
