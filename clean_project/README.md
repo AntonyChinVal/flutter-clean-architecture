@@ -89,7 +89,7 @@ flutter run
 * [Injectable](https://pub.dev/packages/injectable)
 
 # References
-* [Robert C. Martin, The Clean Code Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+* [The Clean Code Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 * [Uncle Bob](http://cleancoder.com/products)
 * [Clean Architecture Guide](https://proandroiddev.com/clean-architecture-data-flow-dependency-rule-615ffdd79e29)
 
