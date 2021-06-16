@@ -26,8 +26,8 @@ class AppItemListTemplate extends StatelessWidget {
                 height: 20,
               ),
               const CTitle(
-                  text: "¿Qué estás\n\n"
-                      "buscando hoy?"),
+                  text: "¿What are you\n\n"
+                      "looking for today?"),
               SizedBox(
                 height: 10,
               ),
@@ -50,7 +50,7 @@ class AppItemListTemplate extends StatelessWidget {
           padding: EdgeInsets.only(left: 15),
           alignment: Alignment.centerLeft,
           child: Text(
-            'Canchas Disponibles',
+            'Available items',
             textAlign: TextAlign.left,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
           ),
