@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-/*
- * Screen
- */
+/// [Screen]
+///
 abstract class Screen {
   String getName() {
     return "Screen";
@@ -13,23 +12,20 @@ abstract class Screen {
   }
 }
 
-/*
- *  TemplateBuilder
- */
+/// [TemplateBuilder]
+///
 abstract class TemplateBuilder {
   Widget buildTemplate();
 }
 
-/*
- *  StatefulScreen
- */
+/// [StatefulScreen]
+///
 abstract class StatefulScreen extends StatefulWidget with Screen {
   StatefulScreen({Key? key}) : super(key: key);
 }
 
-/*
- *  ScreenState
- */
+/// [ScreenState]
+///
 abstract class ScreenState<S extends StatefulScreen> extends State<S>
     with TemplateBuilder {
   final GlobalKey<State<StatefulWidget>> globalKey =
@@ -52,9 +48,8 @@ abstract class ScreenState<S extends StatefulScreen> extends State<S>
   }
 }
 
-/*
- *  StatelessScreen
- */
+/// [StatelessScreen]
+///
 abstract class StatelessScreen extends StatelessWidget
     with Screen, TemplateBuilder {
   const StatelessScreen({Key? key}) : super(key: key);

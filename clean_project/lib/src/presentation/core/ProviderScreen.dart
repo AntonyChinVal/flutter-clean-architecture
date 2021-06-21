@@ -2,51 +2,48 @@ import 'package:clean_project/src/presentation/core/Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-/*
- *  ProviderScreenState
- */
+/// [ProviderScreen]
+///
+class ProviderScreen<CN extends ChangeNotifier> {
+  late final CN changeNotifier;
+
+  MultiProvider buildWithProvider(Widget child) {
+    return MultiProvider(providers: [
+      ChangeNotifierProvider(create: (_) => this.changeNotifier),
+    ], child: child);
+  }
+}
+
+/// [ProviderScreenState]
+///
 abstract class ProviderScreenState<CN extends ChangeNotifier,
-    S extends StatefulScreen> extends ScreenState<S> {
-  CN _changeNotifier;
-
-  ProviderScreenState(this._changeNotifier);
+    S extends StatefulScreen> extends ScreenState<S> with ProviderScreen<CN> {
+  ProviderScreenState(CN changeNotifier) {
+    this.changeNotifier = changeNotifier;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(providers: [
-      ChangeNotifierProvider(create: (_) => this._changeNotifier),
-    ], child: this.buildTemplate());
-  }
-
-  CN get changeNotifier {
-    return this._changeNotifier;
+    return buildWithProvider(this.buildTemplate());
   }
 }
 
-/*
- * StatelessProviderScreen
- */
+/// [StatelessProviderScreen]
+///
 abstract class StatelessProviderScreen<CN extends ChangeNotifier>
-    extends StatelessScreen {
-  final CN _changeNotifier;
-
-  StatelessProviderScreen(this._changeNotifier);
+    extends StatelessScreen with ProviderScreen<CN> {
+  StatelessProviderScreen(CN changeNotifier) {
+    this.changeNotifier = changeNotifier;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(providers: [
-      ChangeNotifierProvider(create: (_) => this._changeNotifier),
-    ], child: this.buildTemplate());
-  }
-
-  CN get changeNotifier {
-    return this._changeNotifier;
+    return buildWithProvider(this.buildTemplate());
   }
 }
 
-/*
- * ScreenNotifier
- */
+/// [ScreenNotifier]
+///
 abstract class ScreenNotifier with ChangeNotifier {
   bool inAsyncCall = false;
 
