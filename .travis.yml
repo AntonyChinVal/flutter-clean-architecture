@@ -14,7 +14,7 @@ before_script:
 script:
   - cd clean_project
   - ../flutter/bin/flutter pub get
-  - ../flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+  - ../flutter/bin/flutter packages pub run build_runner clean
   - ../flutter/bin/flutter test
 cache:
   directories:
