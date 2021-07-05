@@ -14,6 +14,14 @@ class LoginTemplate extends StatelessWidget {
       @required this.onForgetPassword,
       this.inAsyncCall = false});
 
+  bool isFirebaseActivated() {
+    try {
+      return DotEnv.env["FIREBASE"] == "true";
+    } catch (ex) {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +36,7 @@ class LoginTemplate extends StatelessWidget {
                 height: 30,
               ),
               const CTitle(text: "Hello!"),
-              DotEnv.env["FIREBASE"] == "true"
+              this.isFirebaseActivated()
                   ? const CTitle(text: "With Firebase")
                   : SizedBox(),
               SizedBox(
