@@ -16,7 +16,12 @@ class MainScreenState extends ScreenState<MainScreen> {
   List<Widget> _widgets = <Widget>[AppItemListScreen(), UserScreen()];
   int _selectedIndex = 0;
 
-  void _onTapHandler(int index) {
+  MainScreenState() : super();
+  MainScreenState.test() {
+    this._widgets = [UserScreen(), UserScreen()];
+  }
+
+  void onTapHandler(int index) {
     setState(() {
       _selectedIndex = index;
     });
@@ -27,7 +32,7 @@ class MainScreenState extends ScreenState<MainScreen> {
     return MainTemplate(
       selectedIndex: this._selectedIndex,
       widgets: this._widgets,
-      onTapHandler: this._onTapHandler,
+      onTapHandler: this.onTapHandler,
     );
   }
 }

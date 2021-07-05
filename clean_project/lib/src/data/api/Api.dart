@@ -10,8 +10,12 @@ void addAuthInterceptor() {
   dioApiAuth.interceptors
       .add(InterceptorsWrapper(onRequest: (options, handler) {
     dioApiAuth.interceptors.requestLock.lock();
-    handler.next(options);
-    dioApiAuth.interceptors.requestLock.unlock();
+    getToken().then((value) {
+      options.headers['token'] = value;
+      handler.next(options);
+    }).whenComplete(() {
+      dioApiAuth.interceptors.requestLock.unlock();
+    });
   }));
 }
 

@@ -19,8 +19,6 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
     return _dioApi!
         .post<String>("authentication/authenticate")
         .then((response) {
-      print("Response authenticate");
-      print(response);
       addAuthInterceptor();
       return response.data!;
     }).catchError((error) {

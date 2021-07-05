@@ -13,7 +13,7 @@ class MainTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return widgets != null
+    return widgets != null && widgets!.isNotEmpty
         ? Scaffold(
             body: SafeArea(child: widgets![selectedIndex!]),
             bottomNavigationBar: BottomNavigationBar(

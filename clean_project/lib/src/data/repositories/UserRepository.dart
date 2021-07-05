@@ -18,8 +18,6 @@ class UserRepositoryImpl implements UserRepository {
   @override
   Future<AppUser> getUser() {
     return _dioApiAuth!.get("user/get").then((response) {
-      print("Response Get User");
-      print(response);
       AppUser user = AppUser.fromJson(response.data);
       return user;
     }).catchError((error) {

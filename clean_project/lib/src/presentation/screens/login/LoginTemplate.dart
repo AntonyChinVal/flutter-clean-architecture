@@ -2,6 +2,7 @@ import 'package:clean_project/src/presentation/components/atoms/CTitle.dart';
 import 'package:clean_project/src/presentation/components/organisms/CProgressModal.dart';
 import 'package:clean_project/src/presentation/components/organisms/LoginForm.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
 class LoginTemplate extends StatelessWidget {
   final void Function(String email, String password)? onLogin;
@@ -27,6 +28,9 @@ class LoginTemplate extends StatelessWidget {
                 height: 30,
               ),
               const CTitle(text: "Hello!"),
+              DotEnv.env["FIREBASE"] == "true"
+                  ? const CTitle(text: "With Firebase")
+                  : SizedBox(),
               SizedBox(
                 height: 20,
               ),
