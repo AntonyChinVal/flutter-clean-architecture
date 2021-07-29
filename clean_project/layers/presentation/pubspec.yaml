@@ -12,15 +12,14 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^0.22.0
-  flutter_bloc: ^7.0.0
-  provider: ^5.0.0
-  equatable: ^2.0.0
   domain:
     path: ../domain
+  screen: 
+    path: ../../core/screen
 
 dev_dependencies:
   flutter_test:
-    sdk: flutter
+    sdk: flutter 
   bloc_test: ^8.0.0
 
 # For information on the generic Dart part of this file, see the

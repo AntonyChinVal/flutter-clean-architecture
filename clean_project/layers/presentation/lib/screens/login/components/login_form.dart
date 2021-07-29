@@ -7,7 +7,8 @@ class LoginForm extends StatefulWidget {
   final void Function(String email, String password)? onLogin;
   final void Function()? onForgetPassword;
 
-  LoginForm({Key? key, @required this.onLogin, @required this.onForgetPassword})
+  const LoginForm(
+      {Key? key, @required this.onLogin, @required this.onForgetPassword})
       : super(key: key);
 
   @override

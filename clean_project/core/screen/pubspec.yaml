@@ -1,7 +1,6 @@
-name: data
+name: screen
 description: A new Flutter package project.
 version: 0.0.1
-publish_to: none
 homepage:
 
 environment:
@@ -11,16 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.13.1
-  dio: ^4.0.0
-  shared_preferences: ^2.0.5
-  domain:
-    path: ../domain
+  provider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  http_mock_adapter: ^0.2.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

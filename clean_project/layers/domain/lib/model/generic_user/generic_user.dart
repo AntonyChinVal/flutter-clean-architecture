@@ -6,7 +6,7 @@ class GenericUser {
   String? name;
   String? lastname;
 
-  GenericUser({this.name, this.lastname});
+  GenericUser({this.name = "", this.lastname = ""});
 
   factory GenericUser.fromJson(Map<String, dynamic> json) =>
       _$GenericUserFromJson(json);

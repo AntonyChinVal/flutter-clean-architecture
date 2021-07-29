@@ -10,7 +10,7 @@ class LoginUseCase extends UseCase<GenericUser?, LoginUseCaseParams> {
   LoginUseCase(this._userRepository) : super();
 
   @override
-  Future<GenericUser?> execute(LoginUseCaseParams params) async {
+  Future<GenericUser> execute(LoginUseCaseParams params) async {
     try {
       await this
           ._userRepository!
@@ -18,7 +18,7 @@ class LoginUseCase extends UseCase<GenericUser?, LoginUseCaseParams> {
       GenericUser user = await this._userRepository!.getUser();
       return user;
     } catch (ex) {
-      return null;
+      throw ex;
     }
   }
 }
