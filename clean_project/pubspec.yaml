@@ -25,8 +25,10 @@ dependencies:
     sdk: flutter
   data:
     path: layers/data
+  getx_presentation:
+    path: layers/getx_presentation
   presentation:
-    path: layers/presentation
+    path: layers/presentation 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

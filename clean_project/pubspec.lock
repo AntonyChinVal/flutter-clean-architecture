@@ -92,6 +92,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
+  components:
+    dependency: transitive
+    description:
+      path: "core/components"
+      relative: true
+    source: path
+    version: "0.0.1"
   convert:
     dependency: transitive
     description:
@@ -233,6 +240,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  get:
+    dependency: transitive
+    description:
+      name: get
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.3.0"
   get_it:
     dependency: "direct main"
     description:
@@ -240,6 +254,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.1.3"
+  getx_presentation:
+    dependency: "direct main"
+    description:
+      path: "layers/getx_presentation"
+      relative: true
+    source: path
+    version: "0.0.1"
   glob:
     dependency: transitive
     description:

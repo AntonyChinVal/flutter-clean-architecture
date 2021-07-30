@@ -17,7 +17,7 @@ class _ProviderWrappedWidget extends StatelessWidget {
   }
 }
 
-/// [StatelessProviderScreen]
+/// [ProviderScreen]
 ///
 abstract class ProviderScreen<CN extends ChangeNotifier> extends Screen {
   late final CN _provider;

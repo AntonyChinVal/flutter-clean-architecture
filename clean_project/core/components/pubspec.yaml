@@ -1,4 +1,4 @@
-name: screen
+name: components
 description: A new Flutter package project.
 version: 0.0.1
 homepage:
@@ -10,8 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^5.0.0
-  get: ^4.3.0
+  flutter_svg: ^0.22.0
 
 dev_dependencies:
   flutter_test:
