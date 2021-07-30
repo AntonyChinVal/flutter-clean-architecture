@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/configuration/general/session_notifier.dart';
+import 'package:presentation/configuration/general/session_provider.dart';
 import 'package:presentation/configuration/navigation/navigation_service.dart';
 import 'package:presentation/configuration/navigation/route_service.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return this._routeService != null
         ? MultiProvider(
             providers: [
-              ChangeNotifierProvider(create: (_) => SessionProvder()),
+              ChangeNotifierProvider(create: (_) => SessionProvider()),
             ],
             child: MaterialApp(
                 navigatorKey: _navigationService?.navigatorKey,

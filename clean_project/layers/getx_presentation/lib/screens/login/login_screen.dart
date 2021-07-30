@@ -2,28 +2,29 @@ import 'package:components/custom_title.dart';
 import 'package:components/progress_modal.dart';
 import 'package:domain/model/generic_user/generic_user.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:presentation/configuration/general/session_provider.dart';
-import 'package:presentation/screens/login/components/login_form.dart';
-import 'package:presentation/screens/login/login_provider.dart';
+import 'package:getx_presentation/configuration/general/session_controller.dart';
+import 'package:getx_presentation/screens/login/components/login_form.dart';
+import 'package:getx_presentation/screens/login/login_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:screen/provider_screen.dart';
+import 'package:screen/controller_screen.dart';
+import 'package:get/get.dart';
 
-class LoginScreen extends ProviderScreen<LoginProvider> {
-  LoginScreen(LoginProvider provider) : super(provider);
+class GetXLoginScreen extends ControllerScreen<LoginController> {
+  GetXLoginScreen(LoginController controller) : super(controller);
 
   void login(BuildContext context, String email, String password) {
-    context.read<SessionProvider>().saveUser(GenericUser());
-    context.read<LoginProvider>().authenticate(
+    Get.find<SessionController>().saveUser(GenericUser());
+    this.controller.authenticate(
         username: email,
         password: password,
         saveUser: (user) {
-          context.read<SessionProvider>().saveUser(user);
+          Get.find<SessionController>().saveUser(user);
         });
   }
 
   @override
   Widget buildTemplate(BuildContext context) {
+    var sessionController = Get.find<SessionController>();
     return Scaffold(
         body: SafeArea(
             child: ListView(
@@ -36,9 +37,9 @@ class LoginScreen extends ProviderScreen<LoginProvider> {
                 height: 30,
               ),
               const CustomTitle(text: "Hello!"),
-              CustomTitle(
-                text: "${context.watch<SessionProvider>().user.name}",
-              ),
+              Obx(() => CustomTitle(
+                    text: "${sessionController.user.value.name}",
+                  )),
               SizedBox(
                 height: 20,
               ),
@@ -51,9 +52,8 @@ class LoginScreen extends ProviderScreen<LoginProvider> {
             ],
           ),
         ),
-        context.watch<LoginProvider>().inAsyncCall
-            ? ProgressModal()
-            : SizedBox()
+        Obx(() =>
+            this.controller.inAsyncCall.value ? ProgressModal() : SizedBox())
       ],
     )));
   }

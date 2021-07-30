@@ -1,4 +1,4 @@
-name: presentation
+name: getx_presentation
 description: A new Flutter package project.
 version: 0.0.1
 publish_to: none
@@ -20,8 +20,7 @@ dependencies:
 
 dev_dependencies:
   flutter_test:
-    sdk: flutter 
-  bloc_test: ^8.0.0
+    sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

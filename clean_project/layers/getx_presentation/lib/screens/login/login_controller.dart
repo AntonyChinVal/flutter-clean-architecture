@@ -1,17 +1,14 @@
 import 'package:domain/model/generic_user/generic_user.dart';
 import 'package:domain/use_cases/login_use_case.dart';
-import 'package:presentation/configuration/navigation/navigation_service.dart';
-import 'package:presentation/configuration/navigation/route_service.dart';
-import 'package:screen/provider_screen.dart';
+import 'package:getx_presentation/configuration/navigation/route_service.dart';
+import 'package:screen/controller_screen.dart';
+import 'package:get/get.dart';
 
-class LoginProvider extends ScreenProvider {
+class LoginController extends ScreenController {
   LoginUseCase? _loginUseCase;
-  NavigationService? _navigationService;
 
-  LoginProvider(
-      {loginUseCase: LoginUseCase, navigationService: NavigationService}) {
+  LoginController({loginUseCase: LoginUseCase}) {
     this._loginUseCase = loginUseCase;
-    this._navigationService = navigationService;
   }
 
   authenticate(
@@ -27,7 +24,7 @@ class LoginProvider extends ScreenProvider {
       if (saveUser != null && user != null) {
         saveUser(user);
       }
-      _navigationService?.navigateTo(RouteName.loginScreen);
+      Get.to(GetXRouteName.loginScreen);
     } catch (_) {
       this.finishLoading();
     }
