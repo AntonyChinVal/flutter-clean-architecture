@@ -1,21 +1,17 @@
 import 'package:data/api/api_service.dart';
-import 'package:data/device/shared_preferences_service.dart';
+import 'package:data/device/local_storage_service.dart';
 import 'package:domain/model/generic_user/generic_user.dart';
-import 'package:domain/repositories/generic_user_repository.dart';
+import 'package:domain/repositories/user_repository.dart';
 
 class UserRepositoryImpl implements UserRepository {
-  ApiService? _apiService;
-  SharedPreferencesService? _sharedPreferencesService;
+  ApiService _apiService;
+  late LocalStorageService _localStorageService;
 
-  UserRepositoryImpl(ApiService apiService,
-      SharedPreferencesService sharedPreferencesService) {
-    this._apiService = apiService;
-    this._sharedPreferencesService = sharedPreferencesService;
-  }
+  UserRepositoryImpl(this._apiService, this._localStorageService);
 
   @override
   Future<GenericUser> getUser() {
-    return _apiService!.get("user/get").then((response) {
+    return _apiService.get("user/get").then((response) {
       GenericUser user = GenericUser.fromJson(response);
       return user;
     }).catchError((error) {
@@ -26,13 +22,11 @@ class UserRepositoryImpl implements UserRepository {
   @override
   Future authenticate({String email = "", String password = ""}) async {
     try {
-      String token = await this._apiService!.post<String>(
+      String token = await this._apiService.post<String>(
           "authentication/authenticate",
           data: {"email": email, "password": password});
-      await this
-          ._sharedPreferencesService
-          ?.setValue(key: "token", value: token);
-      this._apiService?.addAuthInterceptor();
+      await this._localStorageService.setValue(key: "token", value: token);
+      await this._apiService.addAuthInterceptor();
     } catch (error) {
       throw error;
     }

@@ -1,4 +1,4 @@
-import 'package:data/device/shared_preferences_service.dart';
+import 'package:data/device/local_storage_service.dart';
 import 'package:dio/dio.dart';
 
 var dioOptions = BaseOptions(baseUrl: 'https://demo4566296.mockable.io/');
@@ -11,17 +11,14 @@ abstract class ApiService {
 }
 
 class ApiServiceImpl extends ApiService {
-  Dio? _dio;
-  SharedPreferencesService? _sharedPreferencesService;
+  Dio _dio;
+  LocalStorageService _localStorageService;
 
-  ApiServiceImpl(Dio _dio, SharedPreferencesService sharedPreferencesService) {
-    this._dio = _dio;
-    this._sharedPreferencesService = sharedPreferencesService;
-  }
+  ApiServiceImpl(this._dio, this._localStorageService);
 
   @override
   Future<T> get<T>(String path) {
-    return this._dio!.get<T>(path).then((response) {
+    return this._dio.get<T>(path).then((response) {
       print(response.data);
       return response.data!;
     }).catchError((error) {
@@ -31,7 +28,7 @@ class ApiServiceImpl extends ApiService {
 
   @override
   Future<T> post<T>(String path, {dynamic data}) {
-    return this._dio!.post<T>(path, data: data).then((response) {
+    return this._dio.post<T>(path, data: data).then((response) {
       print(response.data);
       return response.data!;
     }).catchError((error) {
@@ -43,19 +40,19 @@ class ApiServiceImpl extends ApiService {
   Future<void> addAuthInterceptor() async {
     this
         ._dio
-        ?.interceptors
+        .interceptors
         .add(InterceptorsWrapper(onRequest: (options, handler) {
-      this._dio?.interceptors.requestLock.lock();
+      this._dio.interceptors.requestLock.lock();
       _getToken().then((value) {
         options.headers['token'] = value;
         handler.next(options);
       }).whenComplete(() {
-        this._dio?.interceptors.requestLock.unlock();
+        this._dio.interceptors.requestLock.unlock();
       });
     }));
   }
 
   Future<String> _getToken() async {
-    return this._sharedPreferencesService!.getValue(key: "token");
+    return this._localStorageService.getValue(key: "token");
   }
 }

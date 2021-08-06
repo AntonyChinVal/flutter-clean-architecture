@@ -1,12 +1,9 @@
 import 'package:clean_project/src/configuration/app_configuration/getx_route_configuration.dart';
 import 'package:clean_project/src/configuration/app_configuration/route_configuration.dart';
 import 'package:data/api/api_service.dart';
-import 'package:data/device/shared_preferences_service.dart';
-import 'package:data/repositories/item_repository_impl.dart';
+import 'package:data/device/local_storage_service.dart';
 import 'package:data/repositories/user_repository_impl.dart';
-import 'package:domain/repositories/generic_item_repository.dart';
-import 'package:domain/repositories/generic_user_repository.dart';
-import 'package:domain/use_cases/get_items_use_case.dart';
+import 'package:domain/repositories/user_repository.dart';
 import 'package:domain/use_cases/login_use_case.dart';
 import 'package:get_it/get_it.dart';
 import 'package:getx_presentation/configuration/navigation/route_service.dart';
@@ -24,11 +21,10 @@ void configureInjection() {
 }
 
 void setupDataDependencies() {
-  getIt.registerSingleton<SharedPreferencesService>(
-      SharedPreferencesServiceImpl(),
+  getIt.registerSingleton<LocalStorageService>(LocalStorageServiceImpl(),
       signalsReady: true);
   getIt.registerSingleton<ApiService>(
-      ApiServiceImpl(dioApi, getIt<SharedPreferencesService>()),
+      ApiServiceImpl(dioApi, getIt<LocalStorageService>()),
       signalsReady: true);
 }
 
@@ -44,15 +40,11 @@ void setupGetXPresentationDependencies() {
 }
 
 void setupRepositories() {
-  getIt.registerFactory<UserRepository>(() => UserRepositoryImpl(
-      getIt<ApiService>(), getIt<SharedPreferencesService>()));
-  getIt.registerFactory<ItemRepository>(
-      () => ItemRepositoryImpl(getIt<ApiService>()));
+  getIt.registerFactory<UserRepository>(() =>
+      UserRepositoryImpl(getIt<ApiService>(), getIt<LocalStorageService>()));
 }
 
 void setupUsecases() {
   getIt.registerFactory<LoginUseCase>(
       () => LoginUseCase(getIt<UserRepository>()));
-  getIt.registerFactory<GetItemsUseCase>(
-      () => GetItemsUseCase(getIt<ItemRepository>()));
 }
