@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/AntonyChinVal/flutter-clean-architecture.svg?branch=master)](https://travis-ci.com/AntonyChinVal/flutter-clean-architecture)
 
 # CleanFlutter
-A Flutter project with Clean Architecture and BLoC. **For the link of the project presentation, click [here](https://prezi.com/view/XNsm2gaEECR1xur67XOV/).**
+A Flutter project with Clean Architecture. **For the link of the project presentation, click [here](https://prezi.com/view/XNsm2gaEECR1xur67XOV/).**
 
 # Introduction
 
@@ -17,7 +17,6 @@ With the following advantages:
 ## Dependency Rule
 
 This rule says that source code dependencies can only point inwards.
-
 
 # Layers
 
@@ -35,14 +34,11 @@ The `Data` layer is responsible for data retrieval.
 
 ## Presentetation
 The `Presentetation` layer is the representation of the application.
-* Core : The main classes that are used in the `Presentetation` layer.
 * Configuration : Initial settings of the `Presentetation` layer (Navigation, Initialization).
 * Screens : Represents the user interface, events, and lifecycle.
-    * Template : All the widgets that build the screen.
-* Components : Interactive widgets for creating a user interface.
 
-## Configuration
-The `Configuration` layer contains all the general app configurations (Platform(IOS,Android), Firebase, Dependency Injection).
+## App Layer
+The `Configurations` layer contains all the general app configurations (Platform(IOS,Android), Dependency Injection).
 
 # Installation
 
@@ -54,14 +50,17 @@ Run the following commands
 cd clean_project
 
 flutter pub get
-
-flutter packages pub run build_runner build --delete-conflicting-outputs
 ```
 
-### Firebase Installation
-Install [FlutterFire](https://firebase.flutter.dev/) to be able to use Firebase.
-
 # Run
+```flutter
+flutter run
+```
+## Run with GetX
+```flutter
+WITH_GETX=true
+```
+
 ```flutter
 flutter run
 ```
@@ -70,23 +69,11 @@ flutter run
 ```flutter
 flutter test --coverage
 ```
-
-## Run with Firebase
-To compile with firebase, change the value of `FIREBASE` in `.env`.
-
-```flutter
-FIREBASE=true
-```
-
-```flutter
-flutter run
-```
 # Libraries
-* [Flutter BloC](https://pub.dev/packages/flutter_bloc)
+* [GetX](https://pub.dev/packages/get)
 * [Provider](https://pub.dev/packages/provider)
 * [Dio, Http Client](https://pub.dev/packages/dio)
 * [GetIt, Service Locator](https://pub.dev/packages/get_it)
-* [Injectable](https://pub.dev/packages/injectable)
 * [Dotenv](https://pub.dev/packages/flutter_dotenv)
 
 # References
