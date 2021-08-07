@@ -3,6 +3,8 @@ import 'package:components/progress_modal.dart';
 import 'package:domain/model/generic_user/generic_user.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:presentation/configuration/general/session_provider.dart';
+import 'package:presentation/configuration/navigation/navigation_service.dart';
+import 'package:presentation/configuration/navigation/route_service.dart';
 import 'package:presentation/screens/login/components/login_form.dart';
 import 'package:presentation/screens/login/login_provider.dart';
 import 'package:flutter/material.dart';
@@ -10,16 +12,18 @@ import 'package:provider/provider.dart';
 import 'package:screen/provider_screen.dart';
 
 class LoginScreen extends ProviderScreen<LoginProvider> {
-  LoginScreen(LoginProvider provider) : super(provider);
+  final NavigationService? _navigationService;
+  LoginScreen(LoginProvider provider, this._navigationService)
+      : super(provider);
 
-  void login(BuildContext context, String email, String password) {
+  void login(BuildContext context, String email, String password) async {
     context.read<SessionProvider>().saveUser(GenericUser());
-    context.read<LoginProvider>().authenticate(
-        username: email,
-        password: password,
-        saveUser: (user) {
-          context.read<SessionProvider>().saveUser(user);
-        });
+    GenericUser? user = await context
+        .read<LoginProvider>()
+        .authenticate(username: email, password: password);
+    if (user != null) {
+      context.read<SessionProvider>().saveUser(user);
+    }
   }
 
   @override

@@ -12,14 +12,13 @@ import 'package:get/get.dart';
 class GetXLoginScreen extends ControllerScreen<LoginController> {
   GetXLoginScreen(LoginController controller) : super(controller);
 
-  void login(BuildContext context, String email, String password) {
+  void login(String email, String password) async {
     Get.find<SessionController>().saveUser(GenericUser());
-    this.controller.authenticate(
-        username: email,
-        password: password,
-        saveUser: (user) {
-          Get.find<SessionController>().saveUser(user);
-        });
+    GenericUser? user =
+        await this.controller.authenticate(username: email, password: password);
+    if (user != null) {
+      Get.find<SessionController>().saveUser(user);
+    }
   }
 
   @override
@@ -45,7 +44,7 @@ class GetXLoginScreen extends ControllerScreen<LoginController> {
               ),
               LoginForm(
                 onLogin: (email, password) {
-                  this.login(context, email, password);
+                  this.login(email, password);
                 },
                 onForgetPassword: () {},
               ),

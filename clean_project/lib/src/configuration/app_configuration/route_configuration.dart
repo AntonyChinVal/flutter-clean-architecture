@@ -12,9 +12,9 @@ class RouteServiceImpl extends RouteService {
     switch (settings.name) {
       case RouteName.loginScreen:
         return CupertinoPageRoute(
-            builder: (context) => LoginScreen(LoginProvider(
-                loginUseCase: getIt<LoginUseCase>(),
-                navigationService: getIt<NavigationService>())),
+            builder: (context) => LoginScreen(
+                LoginProvider(loginUseCase: getIt<LoginUseCase>()),
+                getIt<NavigationService>()),
             settings: settings);
       default:
         throw Exception("Invalid route");

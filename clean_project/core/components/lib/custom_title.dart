@@ -7,7 +7,6 @@ class CustomTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Build Title");
     return Container(
         width: double.infinity,
         child: Text.rich(TextSpan(

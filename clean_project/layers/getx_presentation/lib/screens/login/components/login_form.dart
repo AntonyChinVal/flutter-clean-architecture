@@ -22,7 +22,6 @@ class LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    print("Build LoginForm");
     return Form(
         key: formKey,
         child: Column(
