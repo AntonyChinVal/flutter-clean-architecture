@@ -23,6 +23,7 @@ class LoginScreen extends ProviderScreen<LoginProvider> {
         .authenticate(username: email, password: password);
     if (user != null) {
       context.read<SessionProvider>().saveUser(user);
+      this._navigationService?.navigateTo(RouteName.loginScreen);
     }
   }
 

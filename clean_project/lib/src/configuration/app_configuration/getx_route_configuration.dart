@@ -12,6 +12,10 @@ class GetXRouteServiceImpl extends GetXRouteService {
       GetPage(
           name: GetXRouteName.loginScreen,
           page: () => GetXLoginScreen(
+              LoginController(loginUseCase: getIt<LoginUseCase>()))),
+      GetPage(
+          name: GetXRouteName.loginScreen,
+          page: () => GetXLoginScreen(
               LoginController(loginUseCase: getIt<LoginUseCase>())))
     ];
     return pages;

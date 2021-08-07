@@ -1,6 +1,5 @@
 import 'package:domain/model/generic_user/generic_user.dart';
 import 'package:domain/use_cases/login_use_case.dart';
-import 'package:presentation/configuration/navigation/navigation_service.dart';
 import 'package:screen/provider_screen.dart';
 
 class LoginProvider extends ScreenProvider {
