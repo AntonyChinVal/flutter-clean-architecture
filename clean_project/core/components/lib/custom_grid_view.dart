@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CustomGridView<T> extends StatelessWidget {
-  final List<T>? items;
+  final List<T> items;
   final int count;
-  final Widget Function(T)? builder;
+  final Widget Function(T) builder;
 
-  CustomGridView(
-      {@required this.items, @required this.builder, this.count = 2});
+  CustomGridView({required this.items, required this.builder, this.count = 2});
 
   List<Widget> convertItemsToWidgets() {
     List<Widget> widgets =
-        this.items!.map((element) => this.builder!(element)).toList();
+        this.items.map((element) => this.builder(element)).toList();
     return widgets;
   }
 
@@ -28,7 +27,7 @@ class CustomGridView<T> extends StatelessWidget {
 
   List<Widget> getDividedRows() {
     List<Widget> dividedRows = [];
-    if (this.items!.isNotEmpty) {
+    if (this.items.isNotEmpty) {
       List<Widget> widgets = this.convertItemsToWidgets();
       List<List<Widget>> dividedWidgets = getDividedWidgets(widgets);
       dividedRows = dividedWidgets

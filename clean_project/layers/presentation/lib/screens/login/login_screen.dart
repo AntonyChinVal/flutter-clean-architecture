@@ -23,7 +23,7 @@ class LoginScreen extends ProviderScreen<LoginProvider> {
         .authenticate(username: email, password: password);
     if (user != null) {
       context.read<SessionProvider>().saveUser(user);
-      this._navigationService?.navigateTo(RouteName.loginScreen);
+      this._navigationService?.navigateTo(RouteName.mainScreen);
     }
   }
 
@@ -41,18 +41,12 @@ class LoginScreen extends ProviderScreen<LoginProvider> {
                 height: 30,
               ),
               const CustomTitle(text: "Hello!"),
-              CustomTitle(
-                text: "${context.watch<SessionProvider>().user.name}",
-              ),
               SizedBox(
                 height: 20,
               ),
-              LoginForm(
-                onLogin: (email, password) {
-                  this.login(context, email, password);
-                },
-                onForgetPassword: () {},
-              ),
+              LoginForm(onLogin: (email, password) {
+                this.login(context, email, password);
+              }),
             ],
           ),
         ),

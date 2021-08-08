@@ -27,18 +27,36 @@ The `Domain` layer defines the business logic of the application.
 * UseCases : Application specific business rules.
 * Repositories : Abstract classes that define the expected functionality of outer layers.
 
+```flutter
+cd clean_project/layers/domain
+```
+
 ## Data
 The `Data` layer is responsible for data retrieval.
 * Repositories : Concrete classes that implement the repository from the domain layer.
 * ExternalData : Data source(Rest Api, Firebase , Device).
 
-## Presentetation
-The `Presentetation` layer is the representation of the application.
-* Configuration : Initial settings of the `Presentetation` layer (Navigation, Initialization).
-* Screens : Represents the user interface, events, and lifecycle.
+```flutter
+cd clean_project/layers/data
+```
 
-## App Layer
-The `Configurations` layer contains all the general app configurations (Platform(IOS,Android), Dependency Injection).
+## Presentation
+The `Presentation` layer is the representation of the application.
+* Configuration : Initial settings of the `Presentation` layer (Navigation, Initialization).
+* Screens : Represents the user interface, events, and lifecycle.
+```flutter
+cd clean_project/layers/presentation
+
+or
+
+cd clean_project/layers/getx_presentation
+```
+
+## App
+The `App` layer contains all the general app configurations(Platform(IOS,Android), Dependency Injection, Run App).
+```flutter
+cd clean_project/lib
+```
 
 # Installation
 

@@ -1,31 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Button extends StatelessWidget {
+  final bool enabled;
   final String title;
   final Color color;
   final Function? onPressed;
-  final SvgPicture? svgPicture;
 
   const Button(
-      {this.title = '',
+      {this.enabled = true,
+      this.title = '',
       this.color = Colors.red,
-      @required this.onPressed,
-      this.svgPicture});
+      this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       autofocus: false,
       style: ElevatedButton.styleFrom(
-          primary: this.color,
+          primary: this.enabled ? this.color : this.color.withOpacity(0.50),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
         child: Row(
           children: <Widget>[
-            this.svgPicture != null ? this.svgPicture! : SizedBox(width: 0),
             Flexible(
                 fit: FlexFit.tight,
                 child: Container(
@@ -41,7 +39,9 @@ class Button extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        onPressed!();
+        if (this.onPressed != null) {
+          onPressed!();
+        }
       },
     );
   }

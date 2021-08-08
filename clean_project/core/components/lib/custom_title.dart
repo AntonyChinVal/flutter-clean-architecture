@@ -9,11 +9,14 @@ class CustomTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: double.infinity,
-        child: Text.rich(TextSpan(
-            text: this.text,
-            style: TextStyle(
-              fontSize: 34,
-              fontWeight: FontWeight.bold,
-            ))));
+        child: RichText(
+          textAlign: TextAlign.center,
+          text: TextSpan(
+              text: this.text,
+              style: TextStyle(
+                fontSize: 34,
+                fontWeight: FontWeight.bold,
+              )),
+        ));
   }
 }

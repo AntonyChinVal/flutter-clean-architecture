@@ -17,8 +17,8 @@ class GetXMyApp extends StatelessWidget {
     Get.put(SessionController());
     return this._routeService != null
         ? GetMaterialApp(
-            getPages: this._routeService!.generateRoutes(),
             initialRoute: GetXRouteName.loginScreen,
+            getPages: this._routeService!.generateRoutes(),
           )
         : Text("No Routes setted");
   }

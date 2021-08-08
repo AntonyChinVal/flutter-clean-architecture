@@ -3,6 +3,7 @@ import 'package:components/progress_modal.dart';
 import 'package:domain/model/generic_user/generic_user.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:getx_presentation/configuration/general/session_controller.dart';
+import 'package:getx_presentation/configuration/navigation/route_service.dart';
 import 'package:getx_presentation/screens/login/components/login_form.dart';
 import 'package:getx_presentation/screens/login/login_controller.dart';
 import 'package:flutter/material.dart';
@@ -18,12 +19,12 @@ class GetXLoginScreen extends ControllerScreen<LoginController> {
         await this.controller.authenticate(username: email, password: password);
     if (user != null) {
       Get.find<SessionController>().saveUser(user);
+      Get.toNamed(GetXRouteName.mainScreen);
     }
   }
 
   @override
   Widget buildTemplate(BuildContext context) {
-    var sessionController = Get.find<SessionController>();
     return Scaffold(
         body: SafeArea(
             child: ListView(
@@ -36,18 +37,12 @@ class GetXLoginScreen extends ControllerScreen<LoginController> {
                 height: 30,
               ),
               const CustomTitle(text: "Hello!"),
-              Obx(() => CustomTitle(
-                    text: "${sessionController.user.value.name}",
-                  )),
               SizedBox(
                 height: 20,
               ),
-              LoginForm(
-                onLogin: (email, password) {
-                  this.login(email, password);
-                },
-                onForgetPassword: () {},
-              ),
+              LoginForm(onLogin: (email, password) {
+                this.login(email, password);
+              }),
             ],
           ),
         ),
