@@ -10,11 +10,11 @@ class GetXMyApp extends StatelessWidget {
 
   GetXMyApp({routeService: GetXRouteService}) {
     this._routeService = routeService;
+    Get.put(SessionController());
   }
 
   @override
   Widget build(BuildContext context) {
-    Get.put(SessionController());
     return this._routeService != null
         ? GetMaterialApp(
             initialRoute: GetXRouteName.loginScreen,
