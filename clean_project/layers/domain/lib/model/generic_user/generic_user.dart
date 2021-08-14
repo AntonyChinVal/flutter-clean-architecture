@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'generic_user.g.dart';
 
 @JsonSerializable()
 class GenericUser {
@@ -8,8 +7,15 @@ class GenericUser {
 
   GenericUser({this.name = "", this.lastname = ""});
 
-  factory GenericUser.fromJson(Map<String, dynamic> json) =>
-      _$GenericUserFromJson(json);
+  factory GenericUser.fromJson(Map<String, dynamic> json) {
+    return GenericUser(
+      name: json['name'] as String?,
+      lastname: json['lastname'] as String?,
+    );
+  }
 
-  Map<String, dynamic> toJson() => _$GenericUserToJson(this);
+  Map<String, dynamic> toJson(GenericUser instance) => <String, dynamic>{
+        'name': instance.name,
+        'lastname': instance.lastname,
+      };
 }

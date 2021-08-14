@@ -1,7 +1,6 @@
-name: presentation
+name: screen
 description: A new Flutter package project.
 version: 0.0.1
-publish_to: none
 homepage:
 
 environment:
@@ -11,17 +10,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  domain:
-    path: ../domain
-  screen: 
-    path: ../../packages/screen
-  components: 
-    path: ../../packages/components
+  provider: ^5.0.0
+  get: ^4.3.0
 
 dev_dependencies:
   flutter_test:
-    sdk: flutter 
-  bloc_test: ^8.0.0
+    sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

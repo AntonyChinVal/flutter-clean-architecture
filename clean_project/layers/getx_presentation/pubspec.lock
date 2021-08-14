@@ -95,7 +95,7 @@ packages:
   components:
     dependency: "direct main"
     description:
-      path: "../../core/components"
+      path: "../../packages/components"
       relative: true
     source: path
     version: "0.0.1"
@@ -252,7 +252,7 @@ packages:
   screen:
     dependency: "direct main"
     description:
-      path: "../../core/screen"
+      path: "../../packages/screen"
       relative: true
     source: path
     version: "0.0.1"
