@@ -10,7 +10,9 @@ class TopicRepositoryImpl implements TopicRepository {
   @override
   Future<List<Topic>> getTopics() {
     return _apiService.get("topics").then((response) {
-      List<Topic> list = [];
+      List<Topic> list = response.data!
+          .map((e) => Topic.fromJson(e as Map<String, dynamic>))
+          .toList();
       return list;
     }).catchError((error) {
       throw error;
