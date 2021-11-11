@@ -1,4 +1,4 @@
-import 'package:domain/model/generic_user/generic_user.dart';
+import 'package:domain/model/generic_user.dart';
 import 'package:get/get.dart';
 
 class SessionController extends GetxController {

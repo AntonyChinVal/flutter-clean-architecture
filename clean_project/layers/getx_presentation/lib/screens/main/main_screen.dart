@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:getx_presentation/configuration/general/session_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_presentation/configuration/navigation/route_service.dart';
 
 class GetXMainScreen extends StatelessWidget {
   @override
@@ -25,6 +26,13 @@ class GetXMainScreen extends StatelessWidget {
             title: "Logout",
             onPressed: () {
               Get.back();
+            },
+          ),
+          SizedBox(height: 20),
+          Button(
+            title: "Topics",
+            onPressed: () {
+              Get.toNamed(GetXRouteName.topicsScreen);
             },
           )
         ],

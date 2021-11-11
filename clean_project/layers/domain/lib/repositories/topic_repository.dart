@@ -1,4 +1,4 @@
-import 'package:domain/model/generic_user/topic.dart';
+import 'package:domain/model/topic.dart';
 
 abstract class TopicRepository {
   Future<List<Topic>> getTopics();

@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:presentation/configuration/general/session_provider.dart';
 import 'package:presentation/configuration/navigation/navigation_service.dart';
 import 'package:presentation/configuration/navigation/route_service.dart';
-import 'package:provider/provider.dart';
+
+final sessionProvider = ChangeNotifierProvider((ref) => SessionProvider());
 
 class MyApp extends StatelessWidget {
   late final NavigationService? _navigationService;
@@ -17,10 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return this._routeService != null
-        ? MultiProvider(
-            providers: [
-              ChangeNotifierProvider(create: (_) => SessionProvider()),
-            ],
+        ? ProviderScope(
             child: MaterialApp(
                 navigatorKey: _navigationService?.navigatorKey,
                 title: 'My App',

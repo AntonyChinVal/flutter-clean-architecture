@@ -13,10 +13,10 @@ dependencies:
     sdk: flutter
   domain:
     path: ../domain
-  screen: 
-    path: ../../packages/screen
+  screen:  
+    path: ../../core/screen
   components: 
-    path: ../../packages/components
+    path: ../../core/components
 
 dev_dependencies:
   flutter_test:

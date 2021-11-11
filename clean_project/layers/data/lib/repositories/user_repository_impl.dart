@@ -1,6 +1,6 @@
 import 'package:data/api/api_service.dart';
 import 'package:data/device/local_storage_service.dart';
-import 'package:domain/model/generic_user/generic_user.dart';
+import 'package:domain/model/generic_user.dart';
 import 'package:domain/repositories/user_repository.dart';
 
 class UserRepositoryImpl implements UserRepository {

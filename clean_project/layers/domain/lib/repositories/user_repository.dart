@@ -1,4 +1,4 @@
-import 'package:domain/model/generic_user/generic_user.dart';
+import 'package:domain/model/generic_user.dart';
 
 abstract class UserRepository {
   Future<GenericUser> getUser();

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:domain/core/use_case.dart';
-import 'package:domain/model/generic_user/generic_user.dart';
+import 'package:domain/model/generic_user.dart';
 import 'package:domain/repositories/user_repository.dart';
 
 class LoginUseCase extends UseCase<GenericUser, LoginUseCaseParams> {

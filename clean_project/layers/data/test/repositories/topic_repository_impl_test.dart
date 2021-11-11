@@ -1,11 +1,11 @@
 import 'package:data/api/api_service.dart';
 import 'package:data/device/local_storage_service.dart';
-import 'package:data/repositories/user_repository_impl.dart';
+import 'package:data/repositories/topic_repository_impl.dart';
 import 'package:dio/dio.dart';
-import 'package:domain/model/generic_user.dart';
+import 'package:domain/model/topic.dart';
+import 'package:domain/repositories/topic_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http_mock_adapter/http_mock_adapter.dart';
-import 'package:domain/repositories/user_repository.dart';
 
 class TestLocalStorageServiceImpl extends LocalStorageService {
   @override
@@ -19,33 +19,28 @@ class TestLocalStorageServiceImpl extends LocalStorageService {
 
 void main() {
   late Dio dio;
+  var topics = [
+    {"image": "Path", "name": "Test"}
+  ];
 
-  group('User Repository', () {
+  group('Topic Repository', () {
     late DioAdapter dioAdapter;
     late ApiService apiService;
     late LocalStorageService localStorageService;
-    late UserRepository userRepository;
+    late TopicRepository topicRepository;
 
     setUpAll(() {
       dioAdapter = DioAdapter();
       dio = Dio()..httpClientAdapter = dioAdapter;
       localStorageService = TestLocalStorageServiceImpl();
       apiService = ApiServiceImpl(dio, localStorageService);
-      userRepository = UserRepositoryImpl(apiService, localStorageService);
+      topicRepository = TopicRepositoryImpl(apiService);
     });
 
-    test('getUser', () async {
-      dioAdapter.onGet("user/get",
-          (request) => request.reply(200, {"name": "", "lastname": ""}));
-      GenericUser user = await userRepository.getUser();
-
-      expect(user is GenericUser, true);
-    });
-    test('authenticate', () async {
-      dioAdapter.onPost("authentication/authenticate",
-          (request) => request.reply(200, "Token"),
-          data: {"email": "Test", "password": "Test"});
-      await userRepository.authenticate(email: "Test", password: "Test");
+    test('getTopics', () async {
+      dioAdapter.onGet("topics", (request) => request.reply(200, topics));
+      List<Topic> list = await topicRepository.getTopics();
+      expect(list is List<Topic>, true);
     });
   });
 }
