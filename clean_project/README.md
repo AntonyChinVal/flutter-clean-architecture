@@ -82,14 +82,10 @@ WITH_GETX=true
 ```flutter
 flutter run
 ```
-
-## Run Test
-```flutter
-flutter test --coverage
-```
 # Libraries
 * [GetX](https://pub.dev/packages/get)
-* [Provider](https://pub.dev/packages/provider)
+* [Riverpod with hooks](https://pub.dev/packages/hooks_riverpod)
+* [Flutter Hooks](https://pub.dev/packages/flutter_hooks)
 * [Dio, Http Client](https://pub.dev/packages/dio)
 * [GetIt, Service Locator](https://pub.dev/packages/get_it)
 * [Dotenv](https://pub.dev/packages/flutter_dotenv)

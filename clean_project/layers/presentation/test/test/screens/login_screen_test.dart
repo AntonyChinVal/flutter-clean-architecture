@@ -34,7 +34,7 @@ void main() {
 }
 
 void loginTest() {
-  group('LoginController', () {
+  group('LoginScreen', () {
     late LoginNotifier provider;
 
     setUp(() {

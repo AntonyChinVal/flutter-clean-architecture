@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/configuration/general/session_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+final sessionProvider = ChangeNotifierProvider((ref) => SessionProvider());
 
 class TestMaterialAppWidget extends StatelessWidget {
   final Widget? home;
@@ -11,10 +13,7 @@ class TestMaterialAppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => SessionProvider()),
-      ],
+    return ProviderScope(
       child: MaterialApp(title: 'Widget Test', home: home),
     );
   }
