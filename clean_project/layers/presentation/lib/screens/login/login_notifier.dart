@@ -1,11 +1,11 @@
-import 'package:domain/model/generic_user/generic_user.dart';
+import 'package:domain/model/generic_user.dart';
 import 'package:domain/use_cases/login_use_case.dart';
-import 'package:screen/provider_screen.dart';
+import 'package:screen/riverpod_screen.dart';
 
-class LoginProvider extends ScreenProvider {
+class LoginNotifier extends ScreenNotifier {
   LoginUseCase? _loginUseCase;
 
-  LoginProvider({loginUseCase: LoginUseCase}) {
+  LoginNotifier({loginUseCase: LoginUseCase}) {
     this._loginUseCase = loginUseCase;
   }
 

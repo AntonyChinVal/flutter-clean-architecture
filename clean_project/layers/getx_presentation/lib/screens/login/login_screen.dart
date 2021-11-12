@@ -1,6 +1,6 @@
 import 'package:components/custom_title.dart';
 import 'package:components/progress_modal.dart';
-import 'package:domain/model/generic_user/generic_user.dart';
+import 'package:domain/model/generic_user.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:getx_presentation/configuration/general/session_controller.dart';
 import 'package:getx_presentation/configuration/navigation/route_service.dart';
@@ -24,7 +24,7 @@ class GetXLoginScreen extends ControllerScreen<LoginController> {
   }
 
   @override
-  Widget buildTemplate(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
             child: ListView(

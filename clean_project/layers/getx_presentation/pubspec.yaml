@@ -14,9 +14,9 @@ dependencies:
   domain:
     path: ../domain
   screen: 
-    path: ../../packages/screen
+    path: ../../core/screen
   components: 
-    path: ../../packages/components
+    path: ../../core/components
 
 dev_dependencies:
   flutter_test:

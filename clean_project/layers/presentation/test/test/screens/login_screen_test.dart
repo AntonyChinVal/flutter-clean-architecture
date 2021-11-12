@@ -1,10 +1,10 @@
-import 'package:domain/model/generic_user/generic_user.dart';
+import 'package:domain/model/generic_user.dart';
 import 'package:domain/repositories/user_repository.dart';
 import 'package:domain/use_cases/login_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:presentation/configuration/navigation/navigation_service.dart';
-import 'package:presentation/screens/login/login_provider.dart';
+import 'package:presentation/screens/login/login_notifier.dart';
 import 'package:presentation/screens/login/login_screen.dart';
 import '../test_material_app.dart';
 
@@ -30,16 +30,16 @@ class UserRepositoryTest extends UserRepository {
 }
 
 void main() {
-  loginBlocTest();
+  loginTest();
 }
 
-void loginBlocTest() {
-  group('LoginController', () {
-    late LoginProvider provider;
+void loginTest() {
+  group('LoginScreen', () {
+    late LoginNotifier provider;
 
     setUp(() {
       provider =
-          LoginProvider(loginUseCase: LoginUseCase(UserRepositoryTest()));
+          LoginNotifier(loginUseCase: LoginUseCase(UserRepositoryTest()));
     });
 
     test('login', () async {

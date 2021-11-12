@@ -1,4 +1,4 @@
-import 'package:domain/model/generic_user/generic_user.dart';
+import 'package:domain/model/generic_user.dart';
 import 'package:flutter/material.dart';
 
 class SessionProvider extends ChangeNotifier {

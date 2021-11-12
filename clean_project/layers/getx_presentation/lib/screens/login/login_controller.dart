@@ -1,4 +1,4 @@
-import 'package:domain/model/generic_user/generic_user.dart';
+import 'package:domain/model/generic_user.dart';
 import 'package:domain/use_cases/login_use_case.dart';
 import 'package:screen/controller_screen.dart';
 

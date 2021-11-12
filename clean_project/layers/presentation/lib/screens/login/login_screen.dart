@@ -1,34 +1,31 @@
 import 'package:components/custom_title.dart';
 import 'package:components/progress_modal.dart';
-import 'package:domain/model/generic_user/generic_user.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:presentation/configuration/general/session_provider.dart';
+import 'package:domain/model/generic_user.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/src/consumer.dart';
+import 'package:presentation/app.dart';
 import 'package:presentation/configuration/navigation/navigation_service.dart';
 import 'package:presentation/configuration/navigation/route_service.dart';
 import 'package:presentation/screens/login/components/login_form.dart';
-import 'package:presentation/screens/login/login_provider.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:screen/provider_screen.dart';
+import 'package:presentation/screens/login/login_notifier.dart';
+import 'package:screen/riverpod_screen.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class LoginScreen extends ProviderScreen<LoginProvider> {
+class LoginScreen extends ProviderScreen<LoginNotifier> {
   final NavigationService? _navigationService;
-  LoginScreen(LoginProvider provider, this._navigationService)
-      : super(provider);
+  LoginScreen(LoginNotifier notifier, this._navigationService)
+      : super(notifier);
 
-  void login(BuildContext context, String email, String password) async {
-    context.read<SessionProvider>().saveUser(GenericUser());
-    GenericUser? user = await context
-        .read<LoginProvider>()
-        .authenticate(username: email, password: password);
-    if (user != null) {
-      context.read<SessionProvider>().saveUser(user);
-      this._navigationService?.navigateTo(RouteName.mainScreen);
-    }
+  void login(WidgetRef ref, String email, String password) async {
+    GenericUser? user = await ref
+        .read(this.provider)
+        .authenticate(password: password, username: email);
+    ref.read(sessionProvider).saveUser(user!);
+    this._navigationService?.navigateTo(RouteName.mainScreen);
   }
 
   @override
-  Widget buildTemplate(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
         body: SafeArea(
             child: ListView(
@@ -45,14 +42,12 @@ class LoginScreen extends ProviderScreen<LoginProvider> {
                 height: 20,
               ),
               LoginForm(onLogin: (email, password) {
-                this.login(context, email, password);
+                this.login(ref, email, password);
               }),
             ],
           ),
         ),
-        context.watch<LoginProvider>().inAsyncCall
-            ? ProgressModal()
-            : SizedBox()
+        ref.watch(this.provider).inAsyncCall ? ProgressModal() : SizedBox()
       ],
     )));
   }
