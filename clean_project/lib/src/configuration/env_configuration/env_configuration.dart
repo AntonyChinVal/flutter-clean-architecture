@@ -1,5 +1,5 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-Future<void> configureEnv() async {
-  await DotEnv.load();
+Future configureEnv() async {
+  await dotenv.load(fileName: ".env");
 }

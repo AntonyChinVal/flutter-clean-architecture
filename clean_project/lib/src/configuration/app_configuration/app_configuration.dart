@@ -8,7 +8,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:getx_presentation/configuration/navigation/route_service.dart';
 
 void configureApp() {
-  if (env['WITH_GETX'] == "true") {
+  if (dotenv.env['WITH_GETX'] == "true") {
     runApp(GetXMyApp(routeService: getIt<GetXRouteService>()));
   } else {
     runApp(MyApp(

@@ -70,7 +70,7 @@ cd clean_project
 flutter pub get
 ```
 
-# Run
+# Run with Riverpod
 ```flutter
 flutter run
 ```
