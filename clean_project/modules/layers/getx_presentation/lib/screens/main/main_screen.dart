@@ -14,7 +14,7 @@ class GetXMainScreen extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
             child: Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -22,14 +22,14 @@ class GetXMainScreen extends StatelessWidget {
           Obx(() => CustomTitle(
                 text: "Hello ${sessionController.user.value.name}",
               )),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Button(
             title: "Logout",
             onPressed: () {
               Get.back();
             },
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Button(
             title: "Topics",
             onPressed: () {
