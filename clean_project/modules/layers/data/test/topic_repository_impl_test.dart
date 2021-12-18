@@ -40,7 +40,7 @@ void main() {
     test('getTopics', () async {
       dioAdapter.onGet("topics", (request) => request.reply(200, topics));
       List<Topic> list = await topicRepository.getTopics();
-      expect(list is List<Topic>, true);
+      expect(list.isNotEmpty, true);
     });
   });
 }

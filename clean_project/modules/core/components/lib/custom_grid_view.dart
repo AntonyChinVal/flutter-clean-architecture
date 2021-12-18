@@ -5,19 +5,20 @@ class CustomGridView<T> extends StatelessWidget {
   final int count;
   final Widget Function(T) builder;
 
-  CustomGridView({required this.items, required this.builder, this.count = 2});
+  const CustomGridView(
+      {Key? key, required this.items, required this.builder, this.count = 2})
+      : super(key: key);
 
   List<Widget> convertItemsToWidgets() {
-    List<Widget> widgets =
-        this.items.map((element) => this.builder(element)).toList();
+    List<Widget> widgets = items.map((element) => builder(element)).toList();
     return widgets;
   }
 
   List<List<Widget>> getDividedWidgets(List<Widget> widgets) {
     List<List<Widget>> dividedWidgets = [];
-    for (var i = 0; i < widgets.length; i += this.count) {
+    for (var i = 0; i < widgets.length; i += count) {
       try {
-        dividedWidgets.add(widgets.sublist(i, i + this.count).toList());
+        dividedWidgets.add(widgets.sublist(i, i + count).toList());
       } catch (ex) {
         dividedWidgets.add(widgets.sublist(i, widgets.length).toList());
       }
@@ -27,8 +28,8 @@ class CustomGridView<T> extends StatelessWidget {
 
   List<Widget> getDividedRows() {
     List<Widget> dividedRows = [];
-    if (this.items.isNotEmpty) {
-      List<Widget> widgets = this.convertItemsToWidgets();
+    if (items.isNotEmpty) {
+      List<Widget> widgets = convertItemsToWidgets();
       List<List<Widget>> dividedWidgets = getDividedWidgets(widgets);
       dividedRows = dividedWidgets
           .map((divideWidget) => Row(
@@ -45,7 +46,7 @@ class CustomGridView<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> builderItems = this.getDividedRows();
+    List<Widget> builderItems = getDividedRows();
     return ListView.builder(
       itemCount: builderItems.length,
       itemBuilder: (BuildContext ctxt, int index) {

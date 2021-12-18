@@ -1,3 +1,4 @@
+import 'package:clean_project/src/configuration/app_configuration/api_configuration.dart';
 import 'package:clean_project/src/configuration/app_configuration/getx_route_configuration.dart';
 import 'package:clean_project/src/configuration/app_configuration/route_configuration.dart';
 import 'package:data/repositories/topic_repository_impl.dart';

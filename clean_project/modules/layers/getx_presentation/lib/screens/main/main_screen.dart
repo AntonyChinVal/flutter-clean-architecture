@@ -1,12 +1,13 @@
 import 'package:components/button.dart';
 import 'package:components/custom_title.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:getx_presentation/configuration/general/session_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_presentation/configuration/navigation/route_service.dart';
 
 class GetXMainScreen extends StatelessWidget {
+  const GetXMainScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var sessionController = Get.find<SessionController>();

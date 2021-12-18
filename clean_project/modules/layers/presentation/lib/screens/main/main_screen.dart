@@ -8,14 +8,14 @@ import 'package:presentation/configuration/navigation/route_service.dart';
 
 class MainScreen extends StatelessWidget {
   final NavigationService? _navigationService;
-  MainScreen(this._navigationService);
+  const MainScreen(this._navigationService, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
             child: Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -25,22 +25,22 @@ class MainScreen extends StatelessWidget {
               final welcomeString = ref.watch(sessionProvider).user.name;
 
               return CustomTitle(
-                text: "Hello ${welcomeString}",
+                text: "Hello $welcomeString",
               );
             },
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Button(
             title: "Logout",
             onPressed: () {
-              this._navigationService?.goBack();
+              _navigationService?.goBack();
             },
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Button(
             title: "Topics",
             onPressed: () {
-              this._navigationService?.navigateTo(RouteName.topicsSreen);
+              _navigationService?.navigateTo(RouteName.topicsSreen);
             },
           )
         ],

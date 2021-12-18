@@ -3,27 +3,27 @@ import 'package:flutter/material.dart';
 class SearchField extends StatelessWidget {
   final TextEditingController? controller;
 
-  const SearchField({@required this.controller});
+  const SearchField({Key? key, @required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: this.controller,
+      controller: controller,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.all(0),
+        contentPadding: const EdgeInsets.all(0),
         filled: true,
         fillColor: Colors.white,
-        prefixIcon: Icon(
+        prefixIcon: const Icon(
           Icons.search,
           color: Color(0xFFBEC2CE),
         ),
         hintText: "Search",
-        hintStyle: TextStyle(color: Color(0xFFBEC2CE)),
+        hintStyle: const TextStyle(color: Color(0xFFBEC2CE)),
         enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFFEAECEF), width: 1.0),
+            borderSide: const BorderSide(color: Color(0xFFEAECEF), width: 1.0),
             borderRadius: BorderRadius.circular(10)),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Color(0xFFEAECEF), width: 1.0),
+            borderSide: const BorderSide(color: Color(0xFFEAECEF), width: 1.0),
             borderRadius: BorderRadius.circular(10)),
       ),
     );

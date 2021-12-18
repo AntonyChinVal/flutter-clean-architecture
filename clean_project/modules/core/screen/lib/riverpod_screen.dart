@@ -8,12 +8,12 @@ abstract class ProviderScreen<CN extends ChangeNotifier>
   late final CN _changeNotifier;
   late final ChangeNotifierProvider<CN> _provider;
 
-  ProviderScreen(CN changeNotifier) {
-    this._changeNotifier = changeNotifier;
-    this._provider = ChangeNotifierProvider((ref) => _changeNotifier);
+  ProviderScreen(CN changeNotifier, {Key? key}) : super(key: key) {
+    _changeNotifier = changeNotifier;
+    _provider = ChangeNotifierProvider((ref) => _changeNotifier);
   }
 
-  ChangeNotifierProvider<CN> get provider => this._provider;
+  ChangeNotifierProvider<CN> get provider => _provider;
 }
 
 /// [ScreenNotifier]
@@ -22,14 +22,14 @@ abstract class ScreenNotifier extends ChangeNotifier {
   bool _inAsyncCall = false;
 
   startLoading() {
-    this._inAsyncCall = true;
+    _inAsyncCall = true;
     notifyListeners();
   }
 
   finishLoading() {
-    this._inAsyncCall = false;
+    _inAsyncCall = false;
     notifyListeners();
   }
 
-  bool get inAsyncCall => this._inAsyncCall;
+  bool get inAsyncCall => _inAsyncCall;
 }

@@ -21,7 +21,8 @@ class GetXRouteServiceImpl extends GetXRouteService {
           name: GetXRouteName.topicsScreen,
           page: () => GetXTopicsScreen(
               TopicsController(getTopicsUseCase: getIt<GetTopicsUseCase>()))),
-      GetPage(name: GetXRouteName.mainScreen, page: () => GetXMainScreen())
+      GetPage(
+          name: GetXRouteName.mainScreen, page: () => const GetXMainScreen())
     ];
     return pages;
   }

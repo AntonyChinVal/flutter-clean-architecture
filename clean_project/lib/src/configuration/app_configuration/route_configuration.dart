@@ -11,6 +11,7 @@ import 'package:domain/use_cases/get_topics_use_case.dart';
 import 'package:presentation/screens/main/main_screen.dart';
 
 class RouteServiceImpl extends RouteService {
+  @override
   Route<dynamic> generateRoutes(RouteSettings settings) {
     switch (settings.name) {
       case RouteName.loginScreen:

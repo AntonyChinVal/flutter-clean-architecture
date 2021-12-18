@@ -5,21 +5,21 @@ import 'package:screen/riverpod_screen.dart';
 class LoginNotifier extends ScreenNotifier {
   LoginUseCase? _loginUseCase;
 
-  LoginNotifier({loginUseCase: LoginUseCase}) {
-    this._loginUseCase = loginUseCase;
+  LoginNotifier({LoginUseCase? loginUseCase}) {
+    _loginUseCase = loginUseCase;
   }
 
   Future<GenericUser?> authenticate(
-      {username: String, password: String}) async {
+      {String? username, String? password}) async {
     try {
-      this.startLoading();
+      startLoading();
       LoginUseCaseParams params =
-          LoginUseCaseParams(email: username, password: password);
-      GenericUser? user = await this._loginUseCase?.execute(params);
-      this.finishLoading();
+          LoginUseCaseParams(email: username!, password: password!);
+      GenericUser? user = await _loginUseCase?.execute(params);
+      finishLoading();
       return user;
     } catch (_) {
-      this.finishLoading();
+      finishLoading();
     }
   }
 }

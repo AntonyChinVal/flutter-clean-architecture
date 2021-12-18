@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class LoginForm extends StatefulWidget {
   final void Function(String email, String password)? onLogin;
 
-  const LoginForm({this.onLogin});
+  const LoginForm({Key? key, this.onLogin}) : super(key: key);
 
   @override
   LoginFormState createState() => LoginFormState();
@@ -13,27 +13,27 @@ class LoginForm extends StatefulWidget {
 
 class LoginFormState extends State<LoginForm> {
   bool isSubmitEnable = false;
-  final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
-  final TextEditingController userController = new TextEditingController();
-  final TextEditingController passwordController = new TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController userController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    this.userController.addListener(this._validate);
-    this.passwordController.addListener(this._validate);
+    userController.addListener(_validate);
+    passwordController.addListener(_validate);
   }
 
   _validate() {
     setState(() {
-      isSubmitEnable = this.userController.text.isNotEmpty &&
-          this.passwordController.text.isNotEmpty;
+      isSubmitEnable =
+          userController.text.isNotEmpty && passwordController.text.isNotEmpty;
     });
   }
 
   _signin() {
-    if (this.widget.onLogin != null) {
-      this.widget.onLogin!(this.userController.text, this.userController.text);
+    if (widget.onLogin != null) {
+      widget.onLogin!(userController.text, userController.text);
     }
   }
 
@@ -47,22 +47,22 @@ class LoginFormState extends State<LoginForm> {
               label: 'Username',
               controller: userController,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             CustomTextFormField(
               label: 'Password',
               controller: passwordController,
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Button(
-              enabled: this.isSubmitEnable,
-              onPressed: this._signin,
+              enabled: isSubmitEnable,
+              onPressed: _signin,
               title: 'Sign in',
               color: Colors.green,
             ),

@@ -6,18 +6,18 @@ class TopicsNotifier extends ScreenNotifier {
   GetTopicsUseCase? _getTopicsUseCase;
   var topics = <Topic>[];
 
-  TopicsNotifier({getTopicsUseCase: GetTopicsUseCase}) {
-    this._getTopicsUseCase = getTopicsUseCase;
+  TopicsNotifier({GetTopicsUseCase? getTopicsUseCase}) {
+    _getTopicsUseCase = getTopicsUseCase;
   }
 
   Future getTopics() async {
     try {
-      this.startLoading();
-      List<Topic>? response = await this._getTopicsUseCase?.execute();
-      this.topics = response!;
-      this.finishLoading();
+      startLoading();
+      List<Topic>? response = await _getTopicsUseCase?.execute();
+      topics = response!;
+      finishLoading();
     } catch (_) {
-      this.finishLoading();
+      finishLoading();
     }
   }
 }

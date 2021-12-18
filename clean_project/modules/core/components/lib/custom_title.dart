@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 class CustomTitle extends StatelessWidget {
   final String text;
 
-  const CustomTitle({this.text = 'Title'});
+  const CustomTitle({Key? key, this.text = 'Title'}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: double.infinity,
         child: RichText(
           textAlign: TextAlign.center,
           text: TextSpan(
-              text: this.text,
-              style: TextStyle(
+              text: text,
+              style: const TextStyle(
                 fontSize: 34,
                 color: Colors.black,
                 fontWeight: FontWeight.bold,

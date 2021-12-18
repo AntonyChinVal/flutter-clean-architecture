@@ -7,29 +7,31 @@ class Button extends StatelessWidget {
   final Function? onPressed;
 
   const Button(
-      {this.enabled = true,
+      {Key? key,
+      this.enabled = true,
       this.title = '',
       this.color = Colors.red,
-      this.onPressed});
+      this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       autofocus: false,
       style: ElevatedButton.styleFrom(
-          primary: this.enabled ? this.color : this.color.withOpacity(0.50),
+          primary: enabled ? color : color.withOpacity(0.50),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(6))),
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
         child: Row(
           children: <Widget>[
             Flexible(
                 fit: FlexFit.tight,
                 child: Container(
                   alignment: Alignment.center,
-                  child: Text(this.title,
-                      style: TextStyle(
+                  child: Text(title,
+                      style: const TextStyle(
                         fontSize: 18,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -39,7 +41,7 @@ class Button extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        if (this.onPressed != null) {
+        if (onPressed != null) {
           onPressed!();
         }
       },

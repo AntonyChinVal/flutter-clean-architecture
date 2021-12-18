@@ -7,18 +7,18 @@ class TopicsController extends ScreenController {
   GetTopicsUseCase? _getTopicsUseCase;
   var topics = <Topic>[].obs;
 
-  TopicsController({getTopicsUseCase: GetTopicsUseCase}) {
-    this._getTopicsUseCase = getTopicsUseCase;
+  TopicsController({GetTopicsUseCase? getTopicsUseCase}) {
+    _getTopicsUseCase = getTopicsUseCase;
   }
 
   Future getTopics() async {
     try {
-      this.startLoading();
-      List<Topic>? response = await this._getTopicsUseCase?.execute();
-      this.topics.value = response!;
-      this.finishLoading();
+      startLoading();
+      List<Topic>? response = await _getTopicsUseCase?.execute();
+      topics.value = response!;
+      finishLoading();
     } catch (_) {
-      this.finishLoading();
+      finishLoading();
     }
   }
 }

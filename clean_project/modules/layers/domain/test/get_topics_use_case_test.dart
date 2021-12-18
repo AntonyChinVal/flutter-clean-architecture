@@ -22,7 +22,7 @@ void main() {
     test('execute', () async {
       GetTopicsUseCase getTopicsUseCase = GetTopicsUseCase(topicRepository);
       List<Topic> topics = await getTopicsUseCase.execute();
-      expect(topics is List<Topic>, true);
+      expect(topics.isNotEmpty, true);
     });
   });
 }

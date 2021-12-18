@@ -34,7 +34,7 @@ void loginTest() {
 
     test('login', () async {
       GenericUser? user = await controller.authenticate();
-      expect(user is GenericUser?, true);
+      expect(user != null, true);
     });
 
     Widget _wrapScreen(GetXLoginScreen loginScreen) {

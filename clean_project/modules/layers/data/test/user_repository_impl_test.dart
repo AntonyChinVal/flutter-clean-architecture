@@ -39,7 +39,7 @@ void main() {
           (request) => request.reply(200, {"name": "", "lastname": ""}));
       GenericUser user = await userRepository.getUser();
 
-      expect(user is GenericUser, true);
+      expect(user.name != null, true);
     });
     test('authenticate', () async {
       dioAdapter.onPost("authentication/authenticate",

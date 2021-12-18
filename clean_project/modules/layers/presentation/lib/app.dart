@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:presentation/configuration/general/session_provider.dart';
@@ -11,14 +10,18 @@ class MyApp extends StatelessWidget {
   late final NavigationService? _navigationService;
   late final RouteService? _routeService;
 
-  MyApp({navigationService: NavigationService, routeService: RouteService}) {
-    this._navigationService = navigationService;
-    this._routeService = routeService;
+  MyApp(
+      {Key? key,
+      NavigationService? navigationService,
+      RouteService? routeService})
+      : super(key: key) {
+    _navigationService = navigationService;
+    _routeService = routeService;
   }
 
   @override
   Widget build(BuildContext context) {
-    return this._routeService != null
+    return _routeService != null
         ? ProviderScope(
             child: MaterialApp(
                 navigatorKey: _navigationService?.navigatorKey,
@@ -26,6 +29,6 @@ class MyApp extends StatelessWidget {
                 onGenerateRoute: _routeService?.generateRoutes,
                 initialRoute: RouteName.loginScreen),
           )
-        : Text("No Routes setted");
+        : const Text("No Routes setted");
   }
 }

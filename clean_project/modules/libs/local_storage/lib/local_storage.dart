@@ -13,7 +13,7 @@ class LocalStorageServiceImpl extends LocalStorageService {
       String value = prefs.getString(key)!;
       return value;
     } catch (ex) {
-      throw ex;
+      rethrow;
     }
   }
 
@@ -23,7 +23,7 @@ class LocalStorageServiceImpl extends LocalStorageService {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString(key, value);
     } catch (ex) {
-      throw ex;
+      rethrow;
     }
   }
 }

@@ -44,7 +44,7 @@ void loginTest() {
 
     test('login', () async {
       GenericUser? user = await provider.authenticate();
-      expect(user is GenericUser?, true);
+      expect(user != null, true);
     });
 
     Widget _wrapScreen(LoginScreen loginScreen) {

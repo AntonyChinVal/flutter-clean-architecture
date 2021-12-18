@@ -5,8 +5,8 @@ class SessionProvider extends ChangeNotifier {
   GenericUser _user = GenericUser();
 
   saveUser(GenericUser user) {
-    this._user = user;
+    _user = user;
   }
 
-  GenericUser get user => this._user;
+  GenericUser get user => _user;
 }

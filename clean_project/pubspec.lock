@@ -135,7 +135,7 @@ packages:
     source: path
     version: "0.0.1"
   dio:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: dio
       url: "https://pub.dartlang.org"

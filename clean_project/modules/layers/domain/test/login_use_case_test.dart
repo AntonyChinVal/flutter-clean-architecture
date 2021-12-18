@@ -25,7 +25,7 @@ void main() {
       LoginUseCase loginUseCase = LoginUseCase(userRepository);
       LoginUseCaseParams params = LoginUseCaseParams(email: "", password: "");
       GenericUser user = await loginUseCase.execute(params);
-      expect(user is GenericUser, true);
+      expect(user.name != null, true);
     });
   });
 }

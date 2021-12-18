@@ -4,8 +4,8 @@ import 'package:local_storage/local_storage.dart';
 import 'package:networking/api_service.dart';
 
 class UserRepositoryImpl implements UserRepository {
-  ApiService _apiService;
-  late LocalStorageService _localStorageService;
+  final ApiService _apiService;
+  late final LocalStorageService _localStorageService;
 
   UserRepositoryImpl(this._apiService, this._localStorageService);
 
@@ -22,13 +22,13 @@ class UserRepositoryImpl implements UserRepository {
   @override
   Future authenticate({String email = "", String password = ""}) async {
     try {
-      String token = await this._apiService.post<String>(
+      String token = await _apiService.post<String>(
           "authentication/authenticate",
           data: {"email": email, "password": password});
-      await this._localStorageService.setValue(key: "token", value: token);
-      await this._apiService.addAuthInterceptor();
+      await _localStorageService.setValue(key: "token", value: token);
+      await _apiService.addAuthInterceptor();
     } catch (error) {
-      throw error;
+      rethrow;
     }
   }
 }
