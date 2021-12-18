@@ -1,5 +1,3 @@
-import 'package:components/custom_title.dart';
-import 'package:components/progress_modal.dart';
 import 'package:domain/model/generic_user.dart';
 import 'package:getx_presentation/configuration/general/session_controller.dart';
 import 'package:getx_presentation/configuration/navigation/route_service.dart';
@@ -8,6 +6,8 @@ import 'package:getx_presentation/screens/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:screen/controller_screen.dart';
 import 'package:get/get.dart';
+import 'package:ui/components/custom_title.dart';
+import 'package:ui/components/progress_modal.dart';
 
 class GetXLoginScreen extends ControllerScreen<LoginController> {
   GetXLoginScreen(LoginController controller, {Key? key})

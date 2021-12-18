@@ -1,10 +1,10 @@
-import 'package:components/button.dart';
-import 'package:components/custom_title.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/app.dart';
 import 'package:presentation/configuration/navigation/navigation_service.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:presentation/configuration/navigation/route_service.dart';
+import 'package:ui/components/button.dart';
+import 'package:ui/components/custom_title.dart';
 
 class MainScreen extends StatelessWidget {
   final NavigationService? _navigationService;

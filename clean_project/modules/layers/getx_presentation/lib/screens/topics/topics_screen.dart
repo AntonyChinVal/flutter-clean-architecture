@@ -1,11 +1,11 @@
-import 'package:components/button.dart';
-import 'package:components/topic_item.dart';
-import 'package:components/progress_modal.dart';
 import 'package:getx_presentation/screens/topics/topics_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:screen/controller_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:ui/components/button.dart';
+import 'package:ui/components/progress_modal.dart';
+import 'package:ui/components/topic_item.dart';
 
 class GetXTopicsScreen extends ControllerScreen<TopicsController> {
   GetXTopicsScreen(TopicsController controller, {Key? key})

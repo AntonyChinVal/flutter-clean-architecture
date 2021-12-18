@@ -1,5 +1,3 @@
-import 'package:components/custom_title.dart';
-import 'package:components/progress_modal.dart';
 import 'package:domain/model/generic_user.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/app.dart';
@@ -9,6 +7,8 @@ import 'package:presentation/screens/login/components/login_form.dart';
 import 'package:presentation/screens/login/login_notifier.dart';
 import 'package:screen/riverpod_screen.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:ui/components/custom_title.dart';
+import 'package:ui/components/progress_modal.dart';
 
 class LoginScreen extends ProviderScreen<LoginNotifier> {
   final NavigationService? _navigationService;
