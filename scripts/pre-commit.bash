@@ -10,8 +10,6 @@ pop_stash_files () {
     fi
 }
 
-cd template
-
 # Stash unstaged files
 hasChanges=$(git diff)
 if [ -n "$hasChanges" ]; then
