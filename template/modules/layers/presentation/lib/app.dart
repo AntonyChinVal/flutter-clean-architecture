@@ -1,34 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:presentation/configuration/navigation/navigation_service.dart';
-import 'package:presentation/configuration/navigation/route_service.dart';
+import 'package:presentation/navigation/route_service.dart';
+import 'package:routemaster/routemaster.dart';
 
 final getIt = GetIt.instance;
 
-class MyApp extends StatelessWidget {
-  late final NavigationService? _navigationService;
-  late final RouteService? _routeService;
+final routemaster = RoutemasterDelegate(
+    routesBuilder: (_) => getIt<RouteService>().generateRoutes());
 
-  MyApp(
-      {Key? key,
-      NavigationService? navigationService,
-      RouteService? routeService})
-      : super(key: key) {
-    _navigationService = navigationService;
-    _routeService = routeService;
-  }
+class MyApp extends StatelessWidget {
+  MyApp({Key? key}) : super(key: key) {}
 
   @override
   Widget build(BuildContext context) {
-    return _routeService != null
-        ? ProviderScope(
-            child: MaterialApp(
-                navigatorKey: _navigationService?.navigatorKey,
-                title: 'My App',
-                onGenerateRoute: _routeService?.generateRoutes,
-                initialRoute: RouteName.loginScreen),
-          )
-        : const Text("No Routes setted");
+    return ProviderScope(
+      child: MaterialApp.router(
+        routerDelegate: routemaster,
+        routeInformationParser: RoutemasterParser(),
+      ),
+    );
   }
 }

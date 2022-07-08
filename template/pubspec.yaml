@@ -48,6 +48,7 @@ dependencies:
   dio: ^4.0.4
   flutter_dotenv: ^5.0.2
   get: ^4.6.1
+  routemaster: ^1.0.1
 
 dev_dependencies:
   flutter_test:

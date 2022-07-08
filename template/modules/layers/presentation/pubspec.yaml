@@ -21,6 +21,7 @@ dependencies:
     path: ../../commons/core
   ui: 
     path: ../../commons/ui
+  routemaster: ^1.0.1
 
 dev_dependencies:
   flutter_test:

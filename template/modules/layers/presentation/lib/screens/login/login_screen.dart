@@ -1,21 +1,20 @@
 import 'package:core/screen/screen.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/configuration/navigation/navigation_service.dart';
-import 'package:presentation/configuration/navigation/route_service.dart';
+import 'package:presentation/app.dart';
+import 'package:presentation/navigation/route_service.dart';
 import 'package:presentation/providers/session_provider.dart';
 import 'package:presentation/screens/login/components/login_form.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ui/components/custom_title.dart';
 
 class LoginScreen extends Screen {
-  final NavigationService? _navigationService;
-  const LoginScreen(this._navigationService, {Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   void login(WidgetRef ref, String email, String password) async {
     await ref
         .read(sessionProvider)
         .authenticate(username: email, password: password);
-    _navigationService?.navigateTo(RouteName.mainScreen);
+    routemaster.push(RouteName.mainScreen);
   }
 
   @override
