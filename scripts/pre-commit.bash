@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-cd template
-
 printf "\e[33;1m%s\e[0m\n" 'Pre-Commit'
 
 # Undo the stash of the files
@@ -11,6 +9,8 @@ pop_stash_files () {
         git stash pop
     fi
 }
+
+cd template
 
 # Stash unstaged files
 hasChanges=$(git diff)
